@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "763114190977",
+    "project_id": "tree-72417",
+    "storage_bucket": "tree-72417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763114190977:android:e5fcc9ba60d5f1cdaa3580",
+        "android_client_info": {
+          "package_name": "com.tree.leave_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdco4ZPsRmPFMfgtQ9ScmoS4R7WC4crR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
