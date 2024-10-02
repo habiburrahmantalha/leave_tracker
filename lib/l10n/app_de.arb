@@ -1,0 +1,11 @@
+{
+    "dark": "Dark",
+    "language": "Language",
+    "light": "Light",
+    "settings": "Settings",
+    "something_went_wrong": "Something went wrong",
+    "something_went_wrong_please_try_again": "Something went wrong,\n Please try again",
+    "status": "Status",
+    "not_found": "Not found",
+    "theme": "Theme"
+}
