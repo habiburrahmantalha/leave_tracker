@@ -59,7 +59,15 @@ class MaterialTheme {
 
 
   ThemeData light() {
-    return theme(lightScheme());
+    return theme(lightScheme(), [
+      CustomStatusColors(
+        pendingColor: Colors.amber.shade600,
+        rejectedColor: Colors.red.shade600,
+        confirmedColor: Colors.green.shade600,
+        vacationColor: Colors.blue.shade400,
+        sicknessColor: Colors.purple.shade400,
+      ),
+    ] );
   }
 
 
@@ -116,10 +124,18 @@ class MaterialTheme {
 
 
   ThemeData dark() {
-    return theme(darkScheme());
+    return theme(darkScheme(), [
+      CustomStatusColors(
+        pendingColor: Colors.amber.shade200,
+        rejectedColor: Colors.red.shade200,
+        confirmedColor: Colors.green.shade200,
+        vacationColor: Colors.blue.shade200,
+        sicknessColor: Colors.purple.shade200,
+      ),
+    ]);
   }
 
-  ThemeData theme(ColorScheme colorScheme) => ThemeData(
+  ThemeData theme(ColorScheme colorScheme, List<ThemeExtension> list,  ) => ThemeData(
     useMaterial3: true,
     brightness: colorScheme.brightness,
     colorScheme: colorScheme,
@@ -129,36 +145,55 @@ class MaterialTheme {
     ),
     scaffoldBackgroundColor: colorScheme.surface,
     canvasColor: colorScheme.surface,
+    extensions: list
   );
-
-  List<ExtendedColor> get extendedColors => [
-  ];
 }
 
-class ExtendedColor {
-  final Color seed, value;
-  final ColorFamily light;
-  final ColorFamily dark;
-  const ExtendedColor({
-    required this.seed,
-    required this.value,
-    required this.light,
-    required this.dark,
-  });
-}
+// Define CustomStatusColors ThemeExtension
+class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
+  final Color? pendingColor;
+  final Color? rejectedColor;
+  final Color? confirmedColor;
+  final Color? vacationColor;  // New for vacation
+  final Color? sicknessColor;  // New for sickness
 
-class ColorFamily {
-  const ColorFamily({
-    required this.color,
-    required this.onColor,
-    required this.colorContainer,
-    required this.onColorContainer,
+  CustomStatusColors({
+    required this.pendingColor,
+    required this.rejectedColor,
+    required this.confirmedColor,
+    required this.vacationColor,  // New
+    required this.sicknessColor,  // New
   });
 
-  final Color color;
-  final Color onColor;
-  final Color colorContainer;
-  final Color onColorContainer;
+  @override
+  CustomStatusColors copyWith({
+    Color? pendingColor,
+    Color? rejectedColor,
+    Color? confirmedColor,
+    Color? vacationColor,  // New
+    Color? sicknessColor,  // New
+  }) {
+    return CustomStatusColors(
+      pendingColor: pendingColor ?? this.pendingColor,
+      rejectedColor: rejectedColor ?? this.rejectedColor,
+      confirmedColor: confirmedColor ?? this.confirmedColor,
+      vacationColor: vacationColor ?? this.vacationColor,  // New
+      sicknessColor: sicknessColor ?? this.sicknessColor,  // New
+    );
+  }
+
+  @override
+  CustomStatusColors lerp(
+      ThemeExtension<CustomStatusColors>? other, double t) {
+    if (other is! CustomStatusColors) return this;
+    return CustomStatusColors(
+      pendingColor: Color.lerp(pendingColor, other.pendingColor, t),
+      rejectedColor: Color.lerp(rejectedColor, other.rejectedColor, t),
+      confirmedColor: Color.lerp(confirmedColor, other.confirmedColor, t),
+      vacationColor: Color.lerp(vacationColor, other.vacationColor, t),  // New
+      sicknessColor: Color.lerp(sicknessColor, other.sicknessColor, t),  // New
+    );
+  }
 }
 
 

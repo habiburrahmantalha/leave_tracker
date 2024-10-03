@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 extension StringExtension on String {
   String capitalize(){
@@ -12,5 +13,17 @@ extension DarkMode on BuildContext {
   bool get isDarkMode {
     final brightness = MediaQuery.of(this).platformBrightness;
     return brightness == Brightness.dark;
+  }
+}
+
+extension DateTimeExtension on DateTime?{
+
+  String toddMMMyy(){
+    if(this != null){
+      DateFormat dateFormat = DateFormat("dd MMM, yy");
+      return dateFormat.format(this!) ;
+    }else{
+      return "";
+    }
   }
 }

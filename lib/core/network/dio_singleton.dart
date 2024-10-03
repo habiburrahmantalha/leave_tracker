@@ -8,12 +8,12 @@ class DioSingleton {
 
   static DioSingleton get instance => _singleton;
   late Dio dio;
-  final String baseUrl = "http://unilevertcl.com/absence-api/public/api/";
+  final String baseUrl = "https://unilevertcl.com/absence-api/public/api/";
 
   void create(String apiKey) {
     BaseOptions options = BaseOptions(
       headers: {
-        "Authorization" : "$apiKey",
+        "Authorization" : apiKey,
         "Accept": "application/json",
         "Content-Type": "application/json",
       },
@@ -48,15 +48,16 @@ Future patchHttp(String path, {dynamic data}) =>
 Future deleteHttp(String path, [dynamic data]) =>
     DioSingleton.instance.dio.delete(path);
 
-Future getHttp(String path, {CancelToken? cancelToken}) async {
-  try {
+Future getHttp(String path, {CancelToken? cancelToken}) =>
     DioSingleton.instance.dio.get(path, cancelToken: cancelToken);
-  } on DioException catch(exception){
-    throw Exception(exception.response?.data["message"] ?? "Something went wrong");
-
-  } catch (exception){
-    throw Exception("Something went wrong");
-  }
-}
+// Future getHttp(String path, {CancelToken? cancelToken}) async {
+//   try {
+//     DioSingleton.instance.dio.get(path, cancelToken: cancelToken);
+//   } on DioException catch(exception){
+//     throw Exception(exception.response?.data["message"] ?? "Something went wrong");
+//   } catch (exception){
+//     throw Exception("Something went wrong");
+//   }
+// }
 
 

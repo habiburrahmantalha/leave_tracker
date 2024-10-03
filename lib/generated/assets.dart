@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
 
+  static const String imagesDefaultImage = 'assets/images/default_image.jpg';
   static const String imagesEmpty = 'assets/images/empty.png';
+  static const String leaveTracker = '.env';
 
 }
