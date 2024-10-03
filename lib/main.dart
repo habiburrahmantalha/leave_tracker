@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:leave_tracker/core/network/dio_singleton.dart';
@@ -14,7 +15,6 @@ import 'package:leave_tracker/core/utils/storage_manager.dart';
 import 'package:leave_tracker/ui/home/presentation/screens/screen_home.dart';
 import 'package:leave_tracker/ui/settings/presentation/blocs/settings_cubit.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'firebase_options.dart';
 import 'router/router.dart';
@@ -73,6 +73,11 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<SettingsCubit>()
+          .setAppTheme(MediaQuery.of(context)
+          .platformBrightness == Brightness.dark ? ThemeMode.dark : ThemeMode.light);
+    });
   }
 
   // This widget is the root of your application.
