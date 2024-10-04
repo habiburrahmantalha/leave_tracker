@@ -61,7 +61,7 @@ class MaterialTheme {
   ThemeData light() {
     return theme(lightScheme(), [
       CustomStatusColors(
-        pendingColor: Colors.amber.shade600.withOpacity(0.4),
+        requestedColor: Colors.amber.shade600.withOpacity(0.4),
         rejectedColor: Colors.red.shade600.withOpacity(0.4),
         confirmedColor: Colors.green.shade600.withOpacity(0.4),
         vacationColor: Colors.blue.shade400.withOpacity(0.4),
@@ -126,7 +126,7 @@ class MaterialTheme {
   ThemeData dark() {
     return theme(darkScheme(), [
       CustomStatusColors(
-        pendingColor: Colors.amber.shade200.withOpacity(0.4),
+        requestedColor: Colors.amber.shade200.withOpacity(0.4),
         rejectedColor: Colors.red.shade200.withOpacity(0.4),
         confirmedColor: Colors.green.shade200.withOpacity(0.4),
         vacationColor: Colors.blue.shade200.withOpacity(0.4),
@@ -151,14 +151,14 @@ class MaterialTheme {
 
 // Define CustomStatusColors ThemeExtension
 class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
-  final Color pendingColor;
+  final Color requestedColor;
   final Color rejectedColor;
   final Color confirmedColor;
   final Color vacationColor;  // New for vacation
   final Color sicknessColor;  // New for sickness
 
   CustomStatusColors({
-    required this.pendingColor,
+    required this.requestedColor,
     required this.rejectedColor,
     required this.confirmedColor,
     required this.vacationColor,  // New
@@ -167,14 +167,14 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
 
   @override
   CustomStatusColors copyWith({
-    Color? pendingColor,
+    Color? requestedColor,
     Color? rejectedColor,
     Color? confirmedColor,
     Color? vacationColor,  // New
     Color? sicknessColor,  // New
   }) {
     return CustomStatusColors(
-      pendingColor: pendingColor ?? this.pendingColor,
+      requestedColor: requestedColor ?? this.requestedColor,
       rejectedColor: rejectedColor ?? this.rejectedColor,
       confirmedColor: confirmedColor ?? this.confirmedColor,
       vacationColor: vacationColor ?? this.vacationColor,  // New
@@ -187,7 +187,7 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
       ThemeExtension<CustomStatusColors>? other, double t) {
     if (other is! CustomStatusColors) return this;
     return CustomStatusColors(
-      pendingColor: pendingColor,
+      requestedColor: requestedColor,
       rejectedColor: rejectedColor,
       confirmedColor: confirmedColor,
       vacationColor: vacationColor,  // New

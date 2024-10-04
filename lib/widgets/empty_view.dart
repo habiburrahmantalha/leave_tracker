@@ -40,10 +40,10 @@ class EmptyView extends StatelessWidget {
         if(image!= null)
         Center(child: image),
         const SizedBox(height: 12,),
-        Center(child: Text(title)),
+        Center(child: Text(title,  style: Theme.of(context).textTheme.labelLarge)),
         const SizedBox(height: 12,),
         if(description != null)
-        Center(child: Text(description ?? "", textAlign: TextAlign.center)),
+        Center(child: Text(description ?? "", textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyMedium,)),
         const SizedBox(height: 24,),
         if(button != null)
           button!

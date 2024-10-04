@@ -9,6 +9,7 @@ import 'package:leave_tracker/ui/absence_list/domain/entities/absence_filter.dar
 import 'package:leave_tracker/ui/absence_list/presentation/blocs/absence_bloc.dart';
 import 'package:leave_tracker/ui/absence_list/presentation/widgets/absence_card_view.dart';
 import 'package:leave_tracker/ui/absence_list/presentation/widgets/bottom_sheet_filter.dart';
+import 'package:leave_tracker/ui/absence_list/presentation/widgets/selected_filter_view.dart';
 import 'package:leave_tracker/widgets/empty_view.dart';
 import 'package:leave_tracker/widgets/pagination_list_view.dart';
 import 'package:leave_tracker/widgets/raw_button.dart';
@@ -48,7 +49,13 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
                       },)
                     );
                   },
-                  child: Image.asset(Assets.imagesFilter, height: 24, color: Theme.of(context).iconTheme.color,)
+                  child: Stack(
+                    children: [
+                      Image.asset(Assets.imagesFilter, height: 24, color: Theme.of(context).iconTheme.color,),
+                      if(state.selectedFilter?.isFilterSelected == true)
+                        Container(height: 8, width: 8, color: Colors.redAccent,)
+                    ],
+                  )
               ),
               RawButton(
                   padding: EdgeInsets.all(8),
@@ -60,25 +67,10 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
           ),
           body: Column(
             children: [
-              AnimatedSwitcher(
-                duration: Duration(milliseconds: 500),
-                transitionBuilder: (Widget child, Animation<double> animation) {
-                  // Customize the transition effect (e.g., fade)
-                  return FadeTransition(opacity: animation, child: child);
-                },
-                child: Visibility(
-                  visible: state.selectedFilter?.isFilterSelected == true,
-                  child: Wrap(children: [
-                    Text(state.selectedFilter?.type?.title ?? ""),
-                    Text(state.selectedFilter?.status?.title ?? ""),
-                    Text(state.selectedFilter?.dateTimeRange?.toString() ?? ""),
-                  ],),
-                ),
-              ),
+              SelectedFilterView(),
 
               Expanded(
                 child: PaginationListView(
-                  physics: ClampingScrollPhysics(),
                   padding: EdgeInsets.symmetric(horizontal: R.dimension.screenHorizontalPadding, vertical: R.dimension.screenVerticalPadding),
                   status: state.status,
                   count: list.length,

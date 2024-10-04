@@ -14,7 +14,7 @@ class UseCaseAbsenceList {
     return ResponseAbsenceList(
       list: (response.absences ?? []).map((e) => Absence.fromModel(e)).toList(),
       currentPage: response.page ?? 1,
-      totalPage: ((response.totalAbsences ?? 1) / 10).floor(),
+      totalPage: ((response.totalAbsences ?? 1) / 10).ceil(),
       totalCount: response.totalAbsences ?? 0,
     );
   }

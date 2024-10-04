@@ -28,7 +28,7 @@ class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
                 list: page == 1 ? [] : state.list ?? []
             ));
             try{
-              ResponseAbsenceList response = await useCase.getAbsenceList(filter: state.selectedFilter?.toQueryParameter(page));
+              ResponseAbsenceList response = await useCase.getAbsenceList(filter: (state.selectedFilter ?? AbsenceFilter()).toQueryParameter(page));
               List<Absence> list = state.list ?? [];
               list.addAll(response.list);
 

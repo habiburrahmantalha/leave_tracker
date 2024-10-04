@@ -5,10 +5,10 @@ sealed class AbsenceEvent extends BaseEventList {
 }
 
 class SetFilterEvent extends AbsenceEvent {
-  final AbsenceFilter value;
+  final AbsenceFilter? value;
 
   const SetFilterEvent(this.value);
 
   @override
-  List<Object> get props => [value];
+  List<Object?> get props => [value];
 }

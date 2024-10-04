@@ -46,7 +46,7 @@ extension AbsenceStatusExtension on AbsenceStatus? {
       null => Colors.transparent,
       AbsenceStatus.confirmed => Theme.of(context).extension<CustomStatusColors>()?.confirmedColor,
       AbsenceStatus.rejected => Theme.of(context).extension<CustomStatusColors>()?.rejectedColor,
-      AbsenceStatus.pending => Theme.of(context).extension<CustomStatusColors>()?.pendingColor,
+      AbsenceStatus.requested => Theme.of(context).extension<CustomStatusColors>()?.requestedColor,
     };
   }
 }

@@ -35,7 +35,7 @@ class Absence extends Equatable {
     return Absence(
       id: model.id ?? 0,
       member: model.member != null ? Member.fromModel(model.member!) : null,
-      type: AbsenceType.values.firstWhere((e) => e.value == model.status,
+      type: AbsenceType.values.firstWhere((e) => e.value == model.type,
           orElse: () => AbsenceType.vacation),
       confirmedAt: _parseDateTime(model.confirmedAt),
       createdAt: _parseDateTime(model.createdAt),
@@ -44,7 +44,7 @@ class Absence extends Equatable {
       endDate: _parseDateTime(model.endDate),
       memberNote: model.memberNote ?? '',
       status: AbsenceStatus.values.firstWhere((e) => e.value == model.status,
-          orElse: () => AbsenceStatus.pending),
+          orElse: () => AbsenceStatus.requested),
       admitterNote: model.admitterNote ?? '',
     );
   }

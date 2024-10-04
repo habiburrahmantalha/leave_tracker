@@ -30,7 +30,7 @@ enum AbsenceType {
 }
 
 enum AbsenceStatus {
-  pending(title: "Pending", value: "pending"),
+  requested(title: "Requested", value: "requested"),
   confirmed(title: "Confirmed", value: "confirmed"),
   rejected(title: "Rejected", value: "rejected");
   const AbsenceStatus({required this.value, required this.title});

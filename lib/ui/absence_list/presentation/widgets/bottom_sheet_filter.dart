@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:leave_tracker/core/constants/enums.dart';
+import 'package:leave_tracker/core/utils/extensions.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence_filter.dart';
 import 'package:leave_tracker/widgets/raw_button.dart';
 
@@ -29,6 +29,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
       context: context,
       firstDate: DateTime(2020),
       lastDate: DateTime(2025),
+      currentDate: DateTime(2021),
       initialDateRange: selectedDateRange,
     );
 
@@ -96,7 +97,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                   items: AbsenceStatus.values.map((AbsenceStatus status) {
                     return DropdownMenuItem<AbsenceStatus>(
                       value: status,
-                      child: Text(status.value),
+                      child: Text(status.title),
                     );
                   }).toList(),
                   decoration: InputDecoration(
@@ -124,7 +125,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                         Text(
                           notifierValue.dateTimeRange == null
                               ? "Start Date - End Date"
-                              : "${DateFormat('yyyy/MM/dd').format(notifierValue.dateTimeRange!.start)} - ${DateFormat('yyyy/MM/dd').format(notifierValue.dateTimeRange!.end)}",
+                              : "${notifierValue.dateTimeRange!.start.toddMMMyy()} - ${notifierValue.dateTimeRange!.end.toddMMMyy()}",
                         ),
                         Icon(Icons.calendar_today),
                       ],

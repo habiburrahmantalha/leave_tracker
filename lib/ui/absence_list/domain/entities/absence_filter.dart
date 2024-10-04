@@ -19,13 +19,16 @@ class AbsenceFilter extends Equatable {
 
   AbsenceFilter copyWith({
     AbsenceType? type,
+    bool? removeType,
     AbsenceStatus? status,
+    bool? removeStatus,
     DateTimeRange? dateTimeRange,
+    bool? removeDateTimeRange,
   }) {
     return AbsenceFilter(
-      type: type ?? this.type,
-      status: status ?? this.status,
-      dateTimeRange: dateTimeRange ?? this.dateTimeRange,
+      type: removeType == true ? null : type ?? this.type,
+      status: removeStatus == true ? null : status ?? this.status,
+      dateTimeRange: removeDateTimeRange == true ? null : dateTimeRange ?? this.dateTimeRange,
     );
   }
 
