@@ -60,7 +60,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                         child: Text(context.local.reset, style: Theme.of(context).textTheme.titleMedium),
                         onTap: (){
                           notifierFilter.value = const AbsenceFilter();
-                        })
+                        },),
                   ],
                 ),
                 const Divider(height: 24,),
@@ -146,12 +146,12 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     ),
                     onTap: (){
                       widget.onComplete(notifierValue);
-                    }),
+                    },),
                 const SizedBox(height: 24.0),
               ],
             ),
           );
-        });
+        },);
   }
 }
 

@@ -41,7 +41,7 @@ linter:
     prefer_const_literals_to_create_immutables: true # Use const for creating immutable literals.
     avoid_returning_null_for_future: true # Avoid returning null for Future.
     prefer_single_quotes: true # Use single quotes for string literals for consistency.
-    require_trailing_commas: false # Enforce trailing commas, improves diffs and formatting.
+    require_trailing_commas: true # Enforce trailing commas, improves diffs and formatting.
     prefer_final_locals: true # Prefer final for local variables if they aren’t reassigned.
     always_declare_return_types: true # Always declare return types for functions and methods.
     avoid_redundant_argument_values: true # Avoid passing argument values that are equal to the default values.

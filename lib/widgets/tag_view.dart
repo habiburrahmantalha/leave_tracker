@@ -6,7 +6,7 @@ class TagView extends StatelessWidget {
     this.textColor,
     this.radius = 6,
     this.padding,
-    this.borderColor, required this.child});
+    this.borderColor, required this.child,});
 
   final Widget child;
   final Color? textColor;
@@ -24,7 +24,7 @@ class TagView extends StatelessWidget {
         decoration: BoxDecoration(
             color: color ?? Colors.transparent,
             borderRadius: BorderRadius.circular(radius),
-            border: Border.all(color: borderColor ?? color ?? Colors.transparent)
+            border: Border.all(color: borderColor ?? color ?? Colors.transparent),
         ),
         child: child,
       ),

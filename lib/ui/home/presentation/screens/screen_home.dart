@@ -59,7 +59,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                     ..add(const GetListEvent()),
                   child: const PageAbsenceList(),
                 ),
-                const PageSettings()
+                const PageSettings(),
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(

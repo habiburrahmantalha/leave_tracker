@@ -39,11 +39,11 @@ class AbsenceCardView extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  TagView(color: data.status.color(context), child: Text(data.status.title(context), style: Theme.of(context).textTheme.labelMedium,)),
+                  TagView(color: data.status.color(context), child: Text(data.status.title(context), style: Theme.of(context).textTheme.labelMedium,),),
                   const SizedBox(height: 8,),
-                  TagView(color: data.type.color(context), child: Text(data.type.title(context), style: Theme.of(context).textTheme.labelMedium,))
+                  TagView(color: data.type.color(context), child: Text(data.type.title(context), style: Theme.of(context).textTheme.labelMedium,),),
                 ],
-              )
+              ),
             ],
           ),
           AbsenceNoteView(label: '${context.local.member_note} : ', note: data.memberNote ?? ''),

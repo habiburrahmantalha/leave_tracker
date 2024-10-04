@@ -46,7 +46,7 @@ class PaginationListView extends StatelessWidget {
         itemBuilder: (final context, final index)=> index == count ?
         status == LoadingStatus.loading ? loadingView ?? const LoadingIndicator() : const SizedBox.shrink()
             : itemBuilder(context, index),
-      )
+      ),
     );
   }
 }

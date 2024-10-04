@@ -36,7 +36,7 @@ class RawButton extends StatelessWidget {
             onLongPress: ()=> onLongPress!= null ? onLongPress!() : onTap(),
             child: Container(
                 padding: padding,
-                child: child
+                child: child,
             ),
           ),
         ),

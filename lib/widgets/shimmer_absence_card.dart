@@ -15,7 +15,7 @@ class ShimmerCardView extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
-              borderRadius: const BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4) )
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4), ),
           ),
           child: Opacity(
             opacity: 0.8,
@@ -27,7 +27,7 @@ class ShimmerCardView extends StatelessWidget {
                 children: <Widget>[
                   Container(height: 32, width: 32, decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(100)
+                      borderRadius: BorderRadius.circular(100),
                   ),),
                   const SizedBox(width: 8,),
                   Container(height: 24, width: 80, color: baseColor,),
@@ -41,7 +41,7 @@ class ShimmerCardView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
-              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
+              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4), ),
           ),
           child: Row(
             children: [
@@ -51,10 +51,10 @@ class ShimmerCardView extends StatelessWidget {
                   child: Container(
                       decoration: BoxDecoration(
                           color: baseColor,
-                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
+                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4), ),
                       ),
                       height: 24,
-                      width: 80)
+                      width: 80,),
               ),
               const SizedBox(width: 24,),
               Shimmer.fromColors(
@@ -63,11 +63,12 @@ class ShimmerCardView extends StatelessWidget {
                   child: Container(
                       decoration: BoxDecoration(
                           color: baseColor,
-                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
+                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4), ),
                       ),
                       height: 24,
-                      width: 128)
-              )
+                      width: 128,
+                  ),
+              ),
             ],
           ),
         ),
@@ -76,7 +77,7 @@ class ShimmerCardView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
-              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
+              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) ),
           ),
           child: Row(
             children: [
@@ -86,10 +87,10 @@ class ShimmerCardView extends StatelessWidget {
                   child: Container(
                       decoration: BoxDecoration(
                           color: baseColor,
-                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
+                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) ),
                       ),
                       height: 24,
-                      width: 96)
+                      width: 96,),
               ),
               const SizedBox(width: 24,),
               Shimmer.fromColors(
@@ -98,11 +99,11 @@ class ShimmerCardView extends StatelessWidget {
                   child: Container(
                       decoration: BoxDecoration(
                           color: baseColor,
-                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
+                          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) ),
                       ),
                       height: 24,
-                      width: 160)
-              )
+                      width: 160,),
+              ),
             ],
           ),
         ),
@@ -128,6 +129,6 @@ class ShimmerCardList extends StatelessWidget {
         },
         itemBuilder: (final context, final index){
           return const ShimmerCardView();
-        });
+        },);
   }
 }

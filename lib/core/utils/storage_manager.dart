@@ -10,7 +10,7 @@ class StorageManager {
 
   void create() {
     storage = FlutterSecureStorage(
-      aOptions: AndroidOptions.defaultOptions.copyWith(encryptedSharedPreferences: true)
+      aOptions: AndroidOptions.defaultOptions.copyWith(encryptedSharedPreferences: true),
     );
   }
 

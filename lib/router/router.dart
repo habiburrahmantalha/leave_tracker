@@ -30,5 +30,5 @@ final List<GoRoute> routes = [
     //     ]
     //   ),
     // ]
-  )
+  ),
 ];

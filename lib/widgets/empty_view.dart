@@ -13,7 +13,7 @@ class EmptyView extends StatelessWidget {
     this.titleWeight,
     this.titleFontSize,
     this.descriptionWeight,
-    this.descriptionFontSize
+    this.descriptionFontSize,
   });
 
   final Widget? image;
@@ -46,7 +46,7 @@ class EmptyView extends StatelessWidget {
         Center(child: Text(description ?? '', textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyMedium,)),
         const SizedBox(height: 24,),
         if(button != null)
-          button!
+          button!,
       ],
     );
   }

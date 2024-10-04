@@ -25,8 +25,8 @@ class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
             emit(state.copyWith(
                 status: LoadingStatus.loading,
                 currentPage: page,
-                list: page == 1 ? [] : state.list ?? []
-            ));
+                list: page == 1 ? [] : state.list ?? [],
+            ),);
             try{
               final ResponseAbsenceList response = await useCase.getAbsenceList(filter: (state.selectedFilter ?? const AbsenceFilter()).toQueryParameter(page));
               final List<Absence> list = state.list ?? [];
@@ -37,8 +37,8 @@ class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
                   currentPage: response.currentPage,
                   totalCount: response.totalCount,
                   totalPage: response.totalPage,
-                  list: list
-              ));
+                  list: list,
+              ),);
             }catch(e){
               printDebug('GetListEvent $e');
               emit(state.copyWith(status: LoadingStatus.failed));

@@ -29,7 +29,7 @@ class PageSettings extends StatelessWidget {
                   children: [
                     Icon(FontAwesomeIcons.language, color: Theme.of(context).iconTheme.color),
                     const SizedBox(width: 12,),
-                    Text(context.local.language)
+                    Text(context.local.language),
                   ],
                 ),
               ),
@@ -70,7 +70,7 @@ class PageSettings extends StatelessWidget {
                 ),
               ),
               if(kDebugMode)
-                const WidgetColorCheck()
+                const WidgetColorCheck(),
             ],
           );
         },

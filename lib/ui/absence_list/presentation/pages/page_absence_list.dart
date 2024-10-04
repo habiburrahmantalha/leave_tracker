@@ -49,22 +49,22 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
                         Navigator.pop(context);
                         context.read<AbsenceBloc>().add(SetFilterEvent(value));
                       },)
-                    );
+                    ,);
                   },
                   child: Stack(
                     children: [
                       Image.asset(Assets.imagesFilter, height: 24, color: Theme.of(context).iconTheme.color,),
                       if(state.selectedFilter?.isFilterSelected == true)
-                        Container(height: 8, width: 8, color: Colors.redAccent,)
+                        Container(height: 8, width: 8, color: Colors.redAccent,),
                     ],
-                  )
+                  ),
               ),
               RawButton(
                   padding: const EdgeInsets.all(8),
                   margin: const EdgeInsets.only(right: 12),
                   onTap: (){},
-                  child: Image.asset(Assets.imagesFile, height: 24, color: Theme.of(context).iconTheme.color,)
-              )
+                  child: Image.asset(Assets.imagesFile, height: 24, color: Theme.of(context).iconTheme.color,),
+              ),
             ],
           ),
           body: Column(

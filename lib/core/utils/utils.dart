@@ -12,7 +12,7 @@ void printDebug(final Object? object) {
 void showCustomBottomSheet(final BuildContext context,{
   required final Widget child,
   final bool isScrollControlled = true,
-  final bool isDismissible = true
+  final bool isDismissible = true,
 }){
   showModalBottomSheet<void>(
       context: context,
@@ -27,7 +27,7 @@ void showCustomBottomSheet(final BuildContext context,{
             child: child,
           ),
         );
-      }
+      },
   );
 }
 
@@ -44,7 +44,7 @@ void showOkToast(final String message, {final ToastType type = ToastType.regular
       },
       textStyle: const TextStyle(color: Colors.white, fontSize: 14),
       textPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      dismissOtherToast: true
+      dismissOtherToast: true,
   );
 }
 

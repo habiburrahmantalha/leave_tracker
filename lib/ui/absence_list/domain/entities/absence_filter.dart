@@ -49,7 +49,7 @@ class AbsenceFilter extends Equatable {
       'status': status?.value,
       'startDate': dateTimeRange?.start.toIso8601String(),
       'endDate': dateTimeRange?.end.toIso8601String(),
-      'page': page.toString()
+      'page': page.toString(),
     };
   }
 }

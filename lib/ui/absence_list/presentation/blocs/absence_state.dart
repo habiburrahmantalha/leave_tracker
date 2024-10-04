@@ -11,7 +11,7 @@ class AbsenceState extends BaseStateList {
     super.totalCount,
     super.status,
     this.list,
-    this.selectedFilter
+    this.selectedFilter,
   });
 
   @override
@@ -22,7 +22,7 @@ class AbsenceState extends BaseStateList {
         totalCount,
         status,
         list,
-        selectedFilter
+        selectedFilter,
       ];
 
   @override

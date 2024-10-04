@@ -19,9 +19,9 @@ class FilterItemButton extends StatelessWidget {
             Text(label, style: Theme.of(context).textTheme.labelMedium,),
             IconButton(padding: EdgeInsets.zero,
                 visualDensity: VisualDensity.compact,
-                onPressed: ()=> onClear(), icon: const Icon(Icons.close))
+                onPressed: ()=> onClear(), icon: const Icon(Icons.close),),
           ],
-        )
+        ),
     );
   }
 }

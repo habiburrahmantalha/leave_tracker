@@ -4,8 +4,7 @@ import 'package:leave_tracker/core/utils/extensions.dart';
 class AbsenceNoteView extends StatelessWidget {
   const AbsenceNoteView({
     super.key,
-    required this.note, required this.label
-  });
+    required this.note, required this.label,});
 
   final String note;
   final String label;
@@ -27,7 +26,7 @@ class AbsenceNoteView extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelLarge,
                       children: [
                         TextSpan(
-                          text: note.capitalize(), style: Theme.of(context).textTheme.bodyLarge
+                          text: note.capitalize(), style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ],
                     ),
@@ -36,7 +35,7 @@ class AbsenceNoteView extends StatelessWidget {
               ],
             ),
           ],
-        )
+        ),
     );
   }
 }

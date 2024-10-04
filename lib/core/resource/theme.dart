@@ -145,7 +145,7 @@ class MaterialTheme {
     ),
     scaffoldBackgroundColor: colorScheme.surface,
     canvasColor: colorScheme.surface,
-    extensions: list
+    extensions: list,
   );
 }
 
@@ -184,7 +184,7 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
 
   @override
   CustomStatusColors lerp(
-      final ThemeExtension<CustomStatusColors>? other, final double t) {
+      final ThemeExtension<CustomStatusColors>? other, final double t,) {
     if (other is! CustomStatusColors) return this;
     return CustomStatusColors(
       requestedColor: requestedColor,
@@ -198,7 +198,7 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
 
 
 TextTheme createTextTheme(
-    final BuildContext context, final String bodyFontString, final String displayFontString) {
+    final BuildContext context, final String bodyFontString, final String displayFontString,) {
   final TextTheme baseTextTheme = Theme.of(context).textTheme;
   final TextTheme bodyTextTheme = GoogleFonts.getTextTheme(bodyFontString, baseTextTheme);
   final TextTheme displayTextTheme =

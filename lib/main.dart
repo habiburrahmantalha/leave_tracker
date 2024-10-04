@@ -48,7 +48,7 @@ Future<void> main() async {
   runApp(BlocProvider(
     create: (final context) => SettingsCubit(),
     child: const OKToast(child: MyApp()),
-  ));
+  ),);
 }
 
 class MyApp extends StatefulWidget {
@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
     WidgetsBinding.instance.addPostFrameCallback((final _) {
       context.read<SettingsCubit>()
           .setAppTheme(MediaQuery.of(context)
-          .platformBrightness == Brightness.dark ? ThemeMode.dark : ThemeMode.light);
+          .platformBrightness == Brightness.dark ? ThemeMode.dark : ThemeMode.light,);
 
       context.read<SettingsCubit>()
           .setLanguageCode(View.of(context).platformDispatcher.locale.languageCode);
