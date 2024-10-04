@@ -22,7 +22,7 @@ enum ToastType{
 }
 
 enum AbsenceType {
-  vacation(title: "vacation", value: "vacation"),
+  vacation(title: "Vacation", value: "vacation"),
   sickness(title: "Sickness", value: "sickness");
   const AbsenceType({required this.value, required this.title});
   final String value;

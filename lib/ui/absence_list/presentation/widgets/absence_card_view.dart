@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:leave_tracker/core/utils/extensions.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence.dart';
 import 'package:leave_tracker/widgets/raw_button.dart';
+import 'package:leave_tracker/widgets/tag_view.dart';
 
+import 'absence_note_view.dart';
+import 'absence_period_view.dart';
+import 'member_info_view.dart';
 
 class AbsenceCardView extends StatelessWidget {
   const AbsenceCardView({super.key, required this.data});
@@ -16,10 +21,35 @@ class AbsenceCardView extends StatelessWidget {
       onTap: (){
 
       },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    MemberInfoView(image: data.member?.image ?? "", name: data.member?.name ?? "",),
+                    AbsencePeriodView(start: data.startDate, end: data.endDate,),
+                  ],
+                ),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TagView(color: data.status.color(context), child: Text(data.status.title, style: Theme.of(context).textTheme.labelMedium,)),
+                  SizedBox(height: 8,),
+                  TagView(color: data.type.color(context), child: Text(data.type.title, style: Theme.of(context).textTheme.labelMedium,))
+                ],
+              )
+            ],
+          ),
+          AbsenceNoteView(label: "Member Note : ", note: data.memberNote ?? ""),
+          AbsenceNoteView(label: "Admitter Note : ", note: data.admitterNote ?? ""),
         ],
       ),
     );

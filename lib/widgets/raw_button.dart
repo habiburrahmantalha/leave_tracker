@@ -30,7 +30,7 @@ class RawButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
         child: Material(
           elevation: elevation,
-          color: color ?? Theme.of(context).colorScheme.primaryContainer.withOpacity(0.6),
+          color: color ?? Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
           child: InkWell(
             onTap: ()=> onTap(),
             onLongPress: ()=> onLongPress!= null ? onLongPress!() : onTap(),

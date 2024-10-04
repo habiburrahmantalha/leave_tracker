@@ -61,11 +61,11 @@ class MaterialTheme {
   ThemeData light() {
     return theme(lightScheme(), [
       CustomStatusColors(
-        pendingColor: Colors.amber.shade600,
-        rejectedColor: Colors.red.shade600,
-        confirmedColor: Colors.green.shade600,
-        vacationColor: Colors.blue.shade400,
-        sicknessColor: Colors.purple.shade400,
+        pendingColor: Colors.amber.shade600.withOpacity(0.4),
+        rejectedColor: Colors.red.shade600.withOpacity(0.4),
+        confirmedColor: Colors.green.shade600.withOpacity(0.4),
+        vacationColor: Colors.blue.shade400.withOpacity(0.4),
+        sicknessColor: Colors.purple.shade400.withOpacity(0.4),
       ),
     ] );
   }
@@ -126,11 +126,11 @@ class MaterialTheme {
   ThemeData dark() {
     return theme(darkScheme(), [
       CustomStatusColors(
-        pendingColor: Colors.amber.shade200,
-        rejectedColor: Colors.red.shade200,
-        confirmedColor: Colors.green.shade200,
-        vacationColor: Colors.blue.shade200,
-        sicknessColor: Colors.purple.shade200,
+        pendingColor: Colors.amber.shade200.withOpacity(0.4),
+        rejectedColor: Colors.red.shade200.withOpacity(0.4),
+        confirmedColor: Colors.green.shade200.withOpacity(0.4),
+        vacationColor: Colors.blue.shade200.withOpacity(0.4),
+        sicknessColor: Colors.purple.shade200.withOpacity(0.4),
       ),
     ]);
   }
@@ -151,11 +151,11 @@ class MaterialTheme {
 
 // Define CustomStatusColors ThemeExtension
 class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
-  final Color? pendingColor;
-  final Color? rejectedColor;
-  final Color? confirmedColor;
-  final Color? vacationColor;  // New for vacation
-  final Color? sicknessColor;  // New for sickness
+  final Color pendingColor;
+  final Color rejectedColor;
+  final Color confirmedColor;
+  final Color vacationColor;  // New for vacation
+  final Color sicknessColor;  // New for sickness
 
   CustomStatusColors({
     required this.pendingColor,
@@ -187,11 +187,11 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
       ThemeExtension<CustomStatusColors>? other, double t) {
     if (other is! CustomStatusColors) return this;
     return CustomStatusColors(
-      pendingColor: Color.lerp(pendingColor, other.pendingColor, t),
-      rejectedColor: Color.lerp(rejectedColor, other.rejectedColor, t),
-      confirmedColor: Color.lerp(confirmedColor, other.confirmedColor, t),
-      vacationColor: Color.lerp(vacationColor, other.vacationColor, t),  // New
-      sicknessColor: Color.lerp(sicknessColor, other.sicknessColor, t),  // New
+      pendingColor: pendingColor,
+      rejectedColor: rejectedColor,
+      confirmedColor: confirmedColor,
+      vacationColor: vacationColor,  // New
+      sicknessColor: sicknessColor,  // New
     );
   }
 }

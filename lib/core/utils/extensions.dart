@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:leave_tracker/core/constants/enums.dart';
+import 'package:leave_tracker/core/resource/theme.dart';
 
 extension StringExtension on String {
   String capitalize(){
@@ -20,10 +22,31 @@ extension DateTimeExtension on DateTime?{
 
   String toddMMMyy(){
     if(this != null){
-      DateFormat dateFormat = DateFormat("dd MMM, yy");
+      DateFormat dateFormat = DateFormat("dd MMM, yyyy");
       return dateFormat.format(this!) ;
     }else{
       return "";
     }
+  }
+}
+
+extension AbsenceTypeExtension on AbsenceType? {
+  Color? color(BuildContext context) {
+    return switch(this) {
+      null => Colors.transparent,
+      AbsenceType.vacation => Theme.of(context).extension<CustomStatusColors>()?.vacationColor,
+      AbsenceType.sickness => Theme.of(context).extension<CustomStatusColors>()?.sicknessColor,
+    };
+  }
+}
+
+extension AbsenceStatusExtension on AbsenceStatus? {
+  Color? color(BuildContext context) {
+    return switch(this) {
+      null => Colors.transparent,
+      AbsenceStatus.confirmed => Theme.of(context).extension<CustomStatusColors>()?.confirmedColor,
+      AbsenceStatus.rejected => Theme.of(context).extension<CustomStatusColors>()?.rejectedColor,
+      AbsenceStatus.pending => Theme.of(context).extension<CustomStatusColors>()?.pendingColor,
+    };
   }
 }
