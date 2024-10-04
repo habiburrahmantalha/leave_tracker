@@ -3,7 +3,7 @@ part of 'absence_bloc.dart';
 class AbsenceState extends BaseStateList {
 
   final List<Absence>? list;
-  final AbsenceType? selectedAbsenceType;
+  final AbsenceFilter? selectedFilter;
 
   const AbsenceState({
     super.currentPage,
@@ -11,7 +11,7 @@ class AbsenceState extends BaseStateList {
     super.totalCount,
     super.status,
     this.list,
-    this.selectedAbsenceType
+    this.selectedFilter
   });
 
   @override
@@ -22,7 +22,7 @@ class AbsenceState extends BaseStateList {
         totalCount,
         status,
         list,
-        selectedAbsenceType
+        selectedFilter
       ];
 
   @override
@@ -32,8 +32,7 @@ class AbsenceState extends BaseStateList {
     int? totalCount,
     LoadingStatus? status,
     List<Absence>? list,
-    AbsenceType? selectedAbsenceType,
-    bool? removeAbsenceType
+    AbsenceFilter? selectedFilter,
   }) {
     return AbsenceState(
       currentPage: currentPage ?? this.currentPage,
@@ -41,7 +40,7 @@ class AbsenceState extends BaseStateList {
       totalCount: totalCount ?? this.totalCount,
       status: status ?? this.status,
       list: list ?? this.list,
-      selectedAbsenceType: removeAbsenceType == true ? null : selectedAbsenceType ?? this.selectedAbsenceType
+      selectedFilter: selectedFilter ?? this.selectedFilter,
     );
   }
 }

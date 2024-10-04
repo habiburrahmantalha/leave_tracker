@@ -4,6 +4,7 @@ import 'package:leave_tracker/core/base_blocs/base_state_list.dart';
 import 'package:leave_tracker/core/constants/enums.dart';
 import 'package:leave_tracker/core/utils/utils.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence.dart';
+import 'package:leave_tracker/ui/absence_list/domain/entities/absence_filter.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/response_absence.dart';
 import 'package:leave_tracker/ui/absence_list/domain/usecases/usecase_absence_list.dart';
 
@@ -27,7 +28,7 @@ class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
                 list: page == 1 ? [] : state.list ?? []
             ));
             try{
-              ResponseAbsenceList response = await useCase.getAbsenceList(filter: "");
+              ResponseAbsenceList response = await useCase.getAbsenceList(filter: state.selectedFilter?.toQueryParameter(page));
               List<Absence> list = state.list ?? [];
               list.addAll(response.list);
 
@@ -49,7 +50,11 @@ class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
     });
 
     on<AbsenceEvent>((event, emit) {
-
+      switch(event){
+        case SetFilterEvent():
+          emit(state.copyWith(selectedFilter: event.value));
+          add(GetListEvent(page: 1));
+      }
     });
   }
 }
