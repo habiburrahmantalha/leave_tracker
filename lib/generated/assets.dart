@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String imagesAbsent = 'assets/images/absent.png';
+  static const String imagesAppIcon = 'assets/images/app_icon.png';
   static const String imagesCalendar = 'assets/images/calendar.png';
   static const String imagesDefaultImage = 'assets/images/default_image.jpg';
   static const String imagesEmpty = 'assets/images/empty.png';
