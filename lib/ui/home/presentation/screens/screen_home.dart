@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:leave_tracker/core/base_blocs/base_event_list.dart';
+import 'package:leave_tracker/ui/absence_list/data/repositories/repository_absence_list_implementation.dart';
+import 'package:leave_tracker/ui/absence_list/domain/usecases/usecase_absence_list.dart';
+import 'package:leave_tracker/ui/absence_list/presentation/blocs/absence_bloc.dart';
+import 'package:leave_tracker/ui/absence_list/presentation/pages/page_absence_list.dart';
 import 'package:leave_tracker/ui/home/presentation/blocs/home_cubit.dart';
 import 'package:leave_tracker/ui/settings/presentation/pages/page_settings.dart';
 
@@ -47,7 +52,11 @@ class _ScreenHomeState extends State<ScreenHome> {
                 context.read<HomeCubit>().setSelectedTab(newPage);
               },
               children: [
-                Container(),
+                BlocProvider(
+                  create: (context) => AbsenceBloc(UseCaseAbsenceList(RepositoryAbsenceListImplementation()))
+                    ..add(GetListEvent()),
+                  child: PageAbsenceList(),
+                ),
                 PageSettings()
               ],
             ),
