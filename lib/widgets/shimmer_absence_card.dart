@@ -8,8 +8,8 @@ class ShimmerCardView extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final Color baseColor = Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2);
-    final Color highlightColor = Theme.of(context).colorScheme.primaryContainer.withOpacity(0.7);
+    final Color baseColor = Theme.of(context).colorScheme.primaryContainer.withOpacity(0.4);
+    final Color highlightColor = Theme.of(context).colorScheme.primaryContainer;
     return Column(
       children: [
         Container(
