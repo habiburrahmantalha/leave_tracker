@@ -12,7 +12,7 @@ class AbsencePeriodView extends StatelessWidget {
   final DateTime? end;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Visibility(
       visible: start != null,
       child: Padding(
@@ -20,9 +20,9 @@ class AbsencePeriodView extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(Assets.imagesCalendar, height: 18, color: context.isDarkMode ? Colors.blue.shade300 : Colors.blue.shade600),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             start == end ?
-            Text(start?.toddMMMyy() ?? "", style: Theme.of(context).textTheme.bodyMedium,) :
+            Text(start?.toddMMMyy() ?? '', style: Theme.of(context).textTheme.bodyMedium,) :
             Text("${start?.toddMMMyy() ?? ""} - ${end?.toddMMMyy() ?? ""}", style: Theme.of(context).textTheme.bodyMedium,),
           ],
         ),

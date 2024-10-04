@@ -21,9 +21,9 @@ abstract class BaseStateList extends Equatable {
   });
 
   BaseStateList copyWith({
-    LoadingStatus? status,
-    int? currentPage,
-    int? totalPage,
-    int? totalCount,
+    final LoadingStatus? status,
+    final int? currentPage,
+    final int? totalPage,
+    final int? totalCount,
   });
 }

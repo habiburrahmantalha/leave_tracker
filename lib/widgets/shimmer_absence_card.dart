@@ -5,9 +5,9 @@ class ShimmerCardView extends StatelessWidget {
   const ShimmerCardView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    Color baseColor = Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2);
-    Color highlightColor = Theme.of(context).colorScheme.primaryContainer.withOpacity(0.7);
+  Widget build(final BuildContext context) {
+    final Color baseColor = Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2);
+    final Color highlightColor = Theme.of(context).colorScheme.primaryContainer.withOpacity(0.7);
     return Column(
       children: [
         Container(
@@ -15,7 +15,7 @@ class ShimmerCardView extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4) )
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4) )
           ),
           child: Opacity(
             opacity: 0.8,
@@ -41,7 +41,7 @@ class ShimmerCardView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
+              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
           ),
           child: Row(
             children: [
@@ -56,7 +56,7 @@ class ShimmerCardView extends StatelessWidget {
                       height: 24,
                       width: 80)
               ),
-              SizedBox(width: 24,),
+              const SizedBox(width: 24,),
               Shimmer.fromColors(
                   baseColor: baseColor,
                   highlightColor: highlightColor,
@@ -76,7 +76,7 @@ class ShimmerCardView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
+              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(4), bottomRight: Radius.circular(4) )
           ),
           child: Row(
             children: [
@@ -91,7 +91,7 @@ class ShimmerCardView extends StatelessWidget {
                       height: 24,
                       width: 96)
               ),
-              SizedBox(width: 24,),
+              const SizedBox(width: 24,),
               Shimmer.fromColors(
                   baseColor: baseColor,
                   highlightColor: highlightColor,
@@ -117,16 +117,16 @@ class ShimmerCardList extends StatelessWidget {
   final int? items;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ListView.separated(
         physics: const ClampingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         itemCount: items ?? 5,
         shrinkWrap: true,
-        separatorBuilder: (context, index){
-          return SizedBox(height: 12,);
+        separatorBuilder: (final context, final index){
+          return const SizedBox(height: 12,);
         },
-        itemBuilder: (context, index){
+        itemBuilder: (final context, final index){
           return const ShimmerCardView();
         });
   }

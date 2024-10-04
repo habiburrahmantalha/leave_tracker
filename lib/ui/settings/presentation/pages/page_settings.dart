@@ -1,19 +1,23 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:leave_tracker/core/resource/theme.dart';
 import 'package:leave_tracker/core/utils/extensions.dart';
 import 'package:leave_tracker/ui/settings/domain/entities/language.dart';
 import 'package:leave_tracker/ui/settings/presentation/blocs/settings_cubit.dart';
+import 'package:leave_tracker/widgets/loading_indicator.dart';
+import 'package:leave_tracker/widgets/tag_view.dart';
 
 class PageSettings extends StatelessWidget {
   const PageSettings({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(title: Text("Settings"),),
+      appBar: AppBar(title: const Text('Settings'),),
       body: Column(
         children: [
           Padding(
@@ -22,14 +26,14 @@ class PageSettings extends StatelessWidget {
               children: [
                 Icon(FontAwesomeIcons.language, color: Theme.of(context).iconTheme.color),
                 const SizedBox(width: 12,),
-                Text("Language")
+                const Text('Language')
               ],
             ),
           ),
           ListView.builder(
             shrinkWrap: true,
             itemCount: languageList.length,
-            itemBuilder: (context, index) {
+            itemBuilder: (final context, final index) {
               return ListTile(
                 onTap: (){
 
@@ -38,7 +42,7 @@ class PageSettings extends StatelessWidget {
                 leading: Radio<String>(
                   value: languageList[index].code,
                   groupValue: null,
-                  onChanged: (value) {
+                  onChanged: (final value) {
 
                   },
                 ),
@@ -46,19 +50,19 @@ class PageSettings extends StatelessWidget {
             },
           ),
           BlocBuilder<SettingsCubit, SettingsState>(
-            builder: (context, state) {
-              ThemeMode themeMode = state.theme ?? (context.isDarkMode ? ThemeMode.dark : ThemeMode.light);
+            builder: (final context, final state) {
+              final ThemeMode themeMode = state.theme;
               return Padding(
                 padding: const EdgeInsets.all(12),
                 child: Row(
                   children: [
                     Icon(FontAwesomeIcons.palette, color: Theme.of(context).iconTheme.color),
                     const SizedBox(width: 12,),
-                    Text("${"Theme"} (${themeMode == ThemeMode.dark ? "Dark" : "Light"})", style: Theme.of(context).textTheme.labelLarge),
+                    Text("${"Theme"} (${context.isDarkMode ? "Dark" : "Light"})", style: Theme.of(context).textTheme.labelLarge),
                     const Spacer(),
                     Switch(
                       value: themeMode == ThemeMode.dark,
-                      onChanged: (value) {
+                      onChanged: (final value) {
                         context.read<SettingsCubit>().setAppTheme(value ? ThemeMode.dark : ThemeMode.light);
                       },
                     ),
@@ -67,10 +71,38 @@ class PageSettings extends StatelessWidget {
               );
             },
           ),
+          if(kDebugMode)
+          const WidgetColorCheck()
         ],
       ),
     );
   }
 }
 
+class WidgetColorCheck extends StatelessWidget {
+  const WidgetColorCheck({super.key});
+
+  @override
+  Widget build(final BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        children: [
+          Text('Widget Color Check', style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 12,),
+          const LoadingIndicator(),
+          TagView(color: Theme.of(context).extension<CustomStatusColors>()?.requestedColor.withOpacity(0.4),child: Text('Pending', style: Theme.of(context).textTheme.titleMedium) ,),
+          const SizedBox(height: 12,),
+          TagView(color: Theme.of(context).extension<CustomStatusColors>()?.rejectedColor.withOpacity(0.4),child: Text('Rejected', style: Theme.of(context).textTheme.titleMedium) ,),
+          const SizedBox(height: 12,),
+          TagView(color: Theme.of(context).extension<CustomStatusColors>()?.confirmedColor.withOpacity(0.4),child: Text('Confirmed', style: Theme.of(context).textTheme.titleMedium) ,),
+          const SizedBox(height: 12,),
+          TagView(color: Theme.of(context).extension<CustomStatusColors>()?.vacationColor.withOpacity(0.4),child: Text('Vacation', style: Theme.of(context).textTheme.titleMedium) ,),
+          const SizedBox(height: 12,),
+          TagView(color: Theme.of(context).extension<CustomStatusColors>()?.sicknessColor.withOpacity(0.4),child: Text('Sickness', style: Theme.of(context).textTheme.titleMedium) ,),
+        ],
+      ),
+    );
+  }
+}
 

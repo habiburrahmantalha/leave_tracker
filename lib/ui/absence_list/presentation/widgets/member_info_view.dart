@@ -10,14 +10,15 @@ class MemberInfoView extends StatelessWidget {
   final String name;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
       children: [
         CircleAvatar(
+          key: key,
           radius: 18,
-          backgroundImage: image.isNotEmpty ? NetworkImage(image) : AssetImage(Assets.imagesDefaultImage),
+          backgroundImage: image.isNotEmpty ? NetworkImage(image,) : const AssetImage(Assets.imagesDefaultImage),
         ),
-        SizedBox(width: 12,),
+        const SizedBox(width: 12,),
         Text(name, style: Theme.of(context).textTheme.titleMedium),
       ],
     );

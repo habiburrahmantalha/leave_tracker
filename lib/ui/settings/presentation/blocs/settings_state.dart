@@ -6,7 +6,7 @@ class SettingsState extends Equatable {
 
   const SettingsState({this.languageCode = 'en', this.theme = ThemeMode.light});
 
-  SettingsState copyWith({String? languageCode, ThemeMode? theme}) {
+  SettingsState copyWith({final String? languageCode, final ThemeMode? theme}) {
     return SettingsState(
       languageCode: languageCode ?? this.languageCode,
       theme: theme ?? this.theme,

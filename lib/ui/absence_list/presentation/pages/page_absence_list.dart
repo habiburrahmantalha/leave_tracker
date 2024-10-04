@@ -28,23 +28,23 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
   bool get wantKeepAlive => true;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     super.build(context);
     return BlocBuilder<AbsenceBloc, AbsenceState>(
 
-      builder: (context, state) {
-        List<Absence> list = state.list ?? [];
+      builder: (final context, final state) {
+        final List<Absence> list = state.list ?? [];
         return Scaffold(
           appBar: AppBar(
-            title: Text("Absence List"),
+            title: const Text('Absence List'),
             actions: [
               RawButton(
-                  padding: EdgeInsets.all(8),
-                  margin: EdgeInsets.only(right: 12),
+                  padding: const EdgeInsets.all(8),
+                  margin: const EdgeInsets.only(right: 12),
                   onTap: (){
                     showCustomBottomSheet(context, child: FilterBottomSheet(
                       selectedFilter: state.selectedFilter,
-                      onComplete: (AbsenceFilter value) {
+                      onComplete: (final AbsenceFilter value) {
                         Navigator.pop(context);
                         context.read<AbsenceBloc>().add(SetFilterEvent(value));
                       },)
@@ -59,8 +59,8 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
                   )
               ),
               RawButton(
-                  padding: EdgeInsets.all(8),
-                  margin: EdgeInsets.only(right: 12),
+                  padding: const EdgeInsets.all(8),
+                  margin: const EdgeInsets.only(right: 12),
                   onTap: (){},
                   child: Image.asset(Assets.imagesFile, height: 24, color: Theme.of(context).iconTheme.color,)
               )
@@ -68,29 +68,29 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
           ),
           body: Column(
             children: [
-              SelectedFilterView(),
+              const SelectedFilterView(),
 
               Expanded(
                 child: PaginationListView(
                   padding: EdgeInsets.symmetric(horizontal: R.dimension.screenHorizontalPadding, vertical: R.dimension.screenVerticalPadding),
                   status: state.status,
                   count: list.length,
-                  onNotificationUpdate: (ScrollNotification scrollNotification, bool isLoading) {
+                  onNotificationUpdate: (final ScrollNotification scrollNotification, final bool isLoading) {
                     if (scrollNotification.metrics.extentAfter < 100 && state.hasNextPage() && !isLoading) {
                       context.read<AbsenceBloc>().add(GetListEvent(page: (state.currentPage  ?? 1) + 1,));
                     }
                     return true;
                   },
-                  itemBuilder: (BuildContext context, int index) {
+                  itemBuilder: (final BuildContext context, final int index) {
                     return AbsenceCardView(data: list[index]);
                   },
                   separator: const SizedBox(height: 12,),
                   emptyView: EmptyView(
                     image: Image.asset(Assets.imagesEmpty),
-                    title: "Item not found",
+                    title: 'Item not found',
                   ),
-                  loadingView: list.isEmpty ? const ShimmerCardList() : Padding(
-                    padding: const EdgeInsets.only(top: 12),
+                  loadingView: list.isEmpty ? const ShimmerCardList() : const Padding(
+                    padding: EdgeInsets.only(top: 12),
                     child: ShimmerCardView(),
                   ),
                 ),

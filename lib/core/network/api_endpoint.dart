@@ -1,3 +1,3 @@
 class ApiEndpoint{
-  static String absences(String? filter) => "absences?$filter";
+  static String absences(final String? filter) => 'absences?$filter';
 }

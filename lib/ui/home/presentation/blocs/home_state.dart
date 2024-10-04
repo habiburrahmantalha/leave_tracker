@@ -6,7 +6,7 @@ class HomeState extends Equatable {
   const HomeState({this.selectedTab});
 
   HomeState copyWith({
-    int? selectedTab,
+    final int? selectedTab,
   }) {
     return HomeState(
       selectedTab: selectedTab ?? this.selectedTab,

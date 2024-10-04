@@ -7,14 +7,14 @@ import 'package:leave_tracker/core/utils/storage_manager.dart';
 part 'settings_state.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
-  SettingsCubit({String? languageCode, ThemeMode? themeMode}) : super(SettingsState());
+  SettingsCubit({final String? languageCode, final ThemeMode? themeMode}) : super(const SettingsState());
 
-  void setLanguageCode(String languageCode) {
+  void setLanguageCode(final String languageCode) {
     StorageManager.instance.setString(R.string.languageCode, languageCode);
     emit(state.copyWith(languageCode: languageCode));
   }
 
-  void setAppTheme(ThemeMode theme) {
+  void setAppTheme(final ThemeMode theme) {
     if (theme == ThemeMode.light) {
       emit(state.copyWith(theme: ThemeMode.light));
     } else if (theme == ThemeMode.dark) {

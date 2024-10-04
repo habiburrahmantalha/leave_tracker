@@ -8,6 +8,19 @@
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
+analyzer:
+
+  exclude:
+    -test/**
+
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+  errors:
+    missing_return: error
+    dead_code: info
 
 linter:
   # The lint rules applied to this project can be customized in the
@@ -20,9 +33,56 @@ linter:
   # or a specific dart file by using the `// ignore: name_of_lint` and
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
+
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # --- Best Practices ---
+    avoid_print: true # Avoid using print, use proper logging instead.
+    prefer_const_constructors: true # Prefer constructors marked as const when possible.
+    prefer_const_literals_to_create_immutables: true # Use const for creating immutable literals.
+    avoid_returning_null_for_future: true # Avoid returning null for Future.
+    prefer_single_quotes: true # Use single quotes for string literals for consistency.
+    require_trailing_commas: false # Enforce trailing commas, improves diffs and formatting.
+    prefer_final_locals: true # Prefer final for local variables if they aren’t reassigned.
+    always_declare_return_types: true # Always declare return types for functions and methods.
+    avoid_redundant_argument_values: true # Avoid passing argument values that are equal to the default values.
+    prefer_typing_uninitialized_variables: true # Always declare a type for uninitialized variables.
+
+    # --- Code Style & Readability ---
+    unnecessary_this: true # Avoid using 'this' keyword when not needed.
+    curly_braces_in_flow_control_structures: true # Enforce curly braces for all flow control structures.
+    sort_child_properties_last: true # Sort child properties last in widget declarations for better readability.
+    prefer_is_empty: true # Prefer using isEmpty over length checks for collections.
+    prefer_is_not_empty: true # Prefer using isNotEmpty for collections.
+    avoid_empty_else: true # Avoid having an empty else block.
+    prefer_const_declarations: true # Prefer using const where applicable for declarations.
+
+    # --- Performance ---
+    avoid_unnecessary_containers: true # Avoid using containers that only add unnecessary complexity.
+    use_rethrow_when_possible: true # Use rethrow to preserve stack trace.
+    avoid_init_to_null: true # Don’t initialize variables to null by default.
+    prefer_interpolation_to_compose_strings: true # Prefer using string interpolation instead of concatenation.
+
+    # --- Flutter Specific ---
+    prefer_const_constructors_in_immutables: true # In immutable classes, prefer const constructors.
+    avoid_annotating_with_dynamic: true # Avoid using the dynamic type annotation unless needed.
+    avoid_private_typedef_functions: true # Avoid private typedefs when possible.
+    avoid_multiple_declarations_per_line: true # Avoid declaring multiple variables on the same line.
+    use_key_in_widget_constructors: true # Always use keys in widget constructors.
+    no_logic_in_create_state: true # Avoid adding logic in createState, it should only return the state class.
+    prefer_final_fields: true # Make fields final when they aren't meant to be reassigned.
+    avoid_returning_this: true # Avoid returning this, as it is rarely needed.
+    prefer_final_parameters: true # Use final parameters in methods/functions to indicate they aren’t changed.
+
+    # --- Error Prevention ---
+    cancel_subscriptions: true # Ensure that stream subscriptions are canceled properly.
+    close_sinks: true # Ensure that sinks are closed properly to avoid memory leaks.
+    empty_catches: true # Avoid empty catch blocks to prevent missed errors.
+    invariant_booleans: true # Ensure booleans aren't always the same.
+
+    # --- Documentation ---
+    public_member_api_docs: false # Enforce documentation for public APIs.
+    slash_for_doc_comments: true # Use triple-slash comments for documentation comments.
+
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

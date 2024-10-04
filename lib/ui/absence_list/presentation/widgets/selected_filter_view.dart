@@ -10,12 +10,12 @@ class SelectedFilterView extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return BlocBuilder<AbsenceBloc, AbsenceState>(
-      builder: (context, state) {
+      builder: (final context, final state) {
         return AnimatedSwitcher(
-          duration: Duration(milliseconds: 500),
-          transitionBuilder: (Widget child, Animation<double> animation) {
+          duration: const Duration(milliseconds: 500),
+          transitionBuilder: (final Widget child, final Animation<double> animation) {
             // Customize the transition effect
             return FadeTransition(opacity: animation, child: child);
           },
@@ -29,14 +29,14 @@ class SelectedFilterView extends StatelessWidget {
                 children: [
                   if(state.selectedFilter?.type != null)
                     FilterItemButton(
-                      label: state.selectedFilter?.type?.title ?? "",
+                      label: state.selectedFilter?.type?.title ?? '',
                       onClear: (){
                         context.read<AbsenceBloc>().add(SetFilterEvent(state.selectedFilter?.copyWith(removeType: true)));
                       },
                     ),
                   if(state.selectedFilter?.status != null)
                     FilterItemButton(
-                      label: state.selectedFilter?.status?.title ?? "",
+                      label: state.selectedFilter?.status?.title ?? '',
                       onClear: (){
                         context.read<AbsenceBloc>().add(SetFilterEvent(state.selectedFilter?.copyWith(removeStatus: true)));
                       },

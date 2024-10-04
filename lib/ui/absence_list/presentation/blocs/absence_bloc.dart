@@ -15,21 +15,21 @@ class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
 
   UseCaseAbsenceList useCase;
 
-  AbsenceBloc(this.useCase) : super(AbsenceState()) {
+  AbsenceBloc(this.useCase) : super(const AbsenceState()) {
 
-    on<BaseEventList>((event, emit) async {
+    on<BaseEventList>((final event, final emit) async {
       switch(event){
         case GetListEvent():
           if(true){
-            int page = event.page ?? (state.currentPage ?? 1);
+            final int page = event.page ?? (state.currentPage ?? 1);
             emit(state.copyWith(
                 status: LoadingStatus.loading,
                 currentPage: page,
                 list: page == 1 ? [] : state.list ?? []
             ));
             try{
-              ResponseAbsenceList response = await useCase.getAbsenceList(filter: (state.selectedFilter ?? AbsenceFilter()).toQueryParameter(page));
-              List<Absence> list = state.list ?? [];
+              final ResponseAbsenceList response = await useCase.getAbsenceList(filter: (state.selectedFilter ?? const AbsenceFilter()).toQueryParameter(page));
+              final List<Absence> list = state.list ?? [];
               list.addAll(response.list);
 
               emit(state.copyWith(
@@ -40,7 +40,7 @@ class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
                   list: list
               ));
             }catch(e){
-              printDebug("GetListEvent $e");
+              printDebug('GetListEvent $e');
               emit(state.copyWith(status: LoadingStatus.failed));
             }
           }
@@ -49,11 +49,11 @@ class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
       }
     });
 
-    on<AbsenceEvent>((event, emit) {
+    on<AbsenceEvent>((final event, final emit) {
       switch(event){
         case SetFilterEvent():
           emit(state.copyWith(selectedFilter: event.value));
-          add(GetListEvent(page: 1));
+          add(const GetListEvent(page: 1));
       }
     });
   }

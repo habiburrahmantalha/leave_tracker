@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MaterialTheme {
@@ -135,7 +135,7 @@ class MaterialTheme {
     ]);
   }
 
-  ThemeData theme(ColorScheme colorScheme, List<ThemeExtension> list,  ) => ThemeData(
+  ThemeData theme(final ColorScheme colorScheme, final List<ThemeExtension> list,  ) => ThemeData(
     useMaterial3: true,
     brightness: colorScheme.brightness,
     colorScheme: colorScheme,
@@ -167,11 +167,11 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
 
   @override
   CustomStatusColors copyWith({
-    Color? requestedColor,
-    Color? rejectedColor,
-    Color? confirmedColor,
-    Color? vacationColor,  // New
-    Color? sicknessColor,  // New
+    final Color? requestedColor,
+    final Color? rejectedColor,
+    final Color? confirmedColor,
+    final Color? vacationColor,  // New
+    final Color? sicknessColor,  // New
   }) {
     return CustomStatusColors(
       requestedColor: requestedColor ?? this.requestedColor,
@@ -184,7 +184,7 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
 
   @override
   CustomStatusColors lerp(
-      ThemeExtension<CustomStatusColors>? other, double t) {
+      final ThemeExtension<CustomStatusColors>? other, final double t) {
     if (other is! CustomStatusColors) return this;
     return CustomStatusColors(
       requestedColor: requestedColor,
@@ -198,12 +198,12 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
 
 
 TextTheme createTextTheme(
-    BuildContext context, String bodyFontString, String displayFontString) {
-  TextTheme baseTextTheme = Theme.of(context).textTheme;
-  TextTheme bodyTextTheme = GoogleFonts.getTextTheme(bodyFontString, baseTextTheme);
-  TextTheme displayTextTheme =
+    final BuildContext context, final String bodyFontString, final String displayFontString) {
+  final TextTheme baseTextTheme = Theme.of(context).textTheme;
+  final TextTheme bodyTextTheme = GoogleFonts.getTextTheme(bodyFontString, baseTextTheme);
+  final TextTheme displayTextTheme =
   GoogleFonts.getTextTheme(displayFontString, baseTextTheme);
-  TextTheme textTheme = displayTextTheme.copyWith(
+  final TextTheme textTheme = displayTextTheme.copyWith(
     bodyLarge: bodyTextTheme.bodyLarge,
     bodyMedium: bodyTextTheme.bodyMedium,
     bodySmall: bodyTextTheme.bodySmall,

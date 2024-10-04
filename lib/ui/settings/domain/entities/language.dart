@@ -9,6 +9,6 @@ class Language {
 }
 
 final languageList = [
-  const Language(title: "English", code: "en"),
-  const Language(title: "German", code: "de"),
+  const Language(title: 'English', code: 'en'),
+  const Language(title: 'German', code: 'de'),
 ];

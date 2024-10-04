@@ -23,7 +23,7 @@ class RawButton extends StatelessWidget {
   final double elevation;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       margin: margin,
       child: ClipRRect(

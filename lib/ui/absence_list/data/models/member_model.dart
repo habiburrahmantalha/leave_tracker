@@ -6,12 +6,12 @@ class MemberModel {
       this.name, 
       this.userId,});
 
-  MemberModel.fromJson(dynamic json) {
-    crewId = json['crewId'];
-    id = json['id'];
-    image = json['image'];
-    name = json['name'];
-    userId = json['userId'];
+  MemberModel.fromJson(json) {
+    crewId = json['crewId'] as int?;
+    id = json['id'] as int?;
+    image = json['image'] as String?;
+    name = json['name'] as String?;
+    userId = json['userId'] as int?;
   }
   int? crewId;
   int? id;

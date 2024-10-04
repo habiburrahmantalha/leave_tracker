@@ -18,12 +18,12 @@ class AbsenceFilter extends Equatable {
   List<Object?> get props => [type, status, dateTimeRange];
 
   AbsenceFilter copyWith({
-    AbsenceType? type,
-    bool? removeType,
-    AbsenceStatus? status,
-    bool? removeStatus,
-    DateTimeRange? dateTimeRange,
-    bool? removeDateTimeRange,
+    final AbsenceType? type,
+    final bool? removeType,
+    final AbsenceStatus? status,
+    final bool? removeStatus,
+    final DateTimeRange? dateTimeRange,
+    final bool? removeDateTimeRange,
   }) {
     return AbsenceFilter(
       type: removeType == true ? null : type ?? this.type,
@@ -36,14 +36,14 @@ class AbsenceFilter extends Equatable {
     return type != null || status != null || dateTimeRange != null;
   }
 
-  toQueryParameter(int page){
-    Map<String, dynamic> filter = toMap(page);
-    filter.removeWhere((key, value) => value == null);
+  String toQueryParameter(final int page){
+    final Map<String, dynamic> filter = toMap(page);
+    filter.removeWhere((final key, final value) => value == null);
     printDebug(Uri(queryParameters: filter).query);
     return Uri(queryParameters: filter).query;
   }
 
-  Map<String, dynamic> toMap(int page) {
+  Map<String, dynamic> toMap(final int page) {
     return {
       'type': type?.value,
       'status': status?.value,

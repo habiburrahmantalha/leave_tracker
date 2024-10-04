@@ -6,7 +6,7 @@ part 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(const HomeState());
 
-  setSelectedTab(int page){
+  void setSelectedTab(final int page){
     emit(state.copyWith(selectedTab: page));
   }
 }

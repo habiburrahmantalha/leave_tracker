@@ -8,18 +8,18 @@ class FilterItemButton extends StatelessWidget {
   final String label;
   final Function onClear;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return TagView(
         radius: 20,
         padding: EdgeInsets.zero,
         color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
         child: Row(
           children: [
-            SizedBox(width: 12,),
+            const SizedBox(width: 12,),
             Text(label, style: Theme.of(context).textTheme.labelMedium,),
             IconButton(padding: EdgeInsets.zero,
                 visualDensity: VisualDensity.compact,
-                onPressed: ()=> onClear(), icon: Icon(Icons.close))
+                onPressed: ()=> onClear(), icon: const Icon(Icons.close))
           ],
         )
     );

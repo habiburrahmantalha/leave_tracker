@@ -19,34 +19,34 @@ import 'package:oktoast/oktoast.dart';
 import 'firebase_options.dart';
 import 'router/router.dart';
 
-String apiKey = "";
+String apiKey = '';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (const String.fromEnvironment("API_KEY").isNotEmpty) {
-    apiKey = const String.fromEnvironment("API_KEY");
+  if (const String.fromEnvironment('API_KEY').isNotEmpty) {
+    apiKey = const String.fromEnvironment('API_KEY');
   }else{
     try {
-      await dotenv.load(fileName: ".env");
-      apiKey = dotenv.env['API_KEY'] ?? "";
+      await dotenv.load();
+      apiKey = dotenv.env['API_KEY'] ?? '';
     }catch(e){
-      throw UnsupportedError("dotenv file not found",);
+      throw UnsupportedError('dotenv file not found',);
     }
   }
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FlutterError.onError = (errorDetails) {
+  FlutterError.onError = (final errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
   };
-  PlatformDispatcher.instance.onError = (error, stack) {
+  PlatformDispatcher.instance.onError = (final error, final stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
   runApp(BlocProvider(
-    create: (context) => SettingsCubit(),
+    create: (final context) => SettingsCubit(),
     child: const OKToast(child: MyApp()),
   ));
 }
@@ -73,7 +73,7 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((final _) {
       context.read<SettingsCubit>()
           .setAppTheme(MediaQuery.of(context)
           .platformBrightness == Brightness.dark ? ThemeMode.dark : ThemeMode.light);
@@ -82,21 +82,21 @@ class _MyAppState extends State<MyApp> {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return MaterialApp.router(
       title: 'Leave_tracker',
       debugShowCheckedModeBanner: false,
-      theme: MaterialTheme(createTextTheme(context, "Montserrat", "Montserrat")).light(),
-      darkTheme: MaterialTheme(createTextTheme(context, "Montserrat", "Montserrat")).dark(),
+      theme: MaterialTheme(createTextTheme(context, 'Montserrat', 'Montserrat')).light(),
+      darkTheme: MaterialTheme(createTextTheme(context, 'Montserrat', 'Montserrat')).dark(),
       themeMode: context.watch<SettingsCubit>().state.theme,
       locale: Locale(context.watch<SettingsCubit>().state.languageCode),
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,  // The generated localization delegate
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'), // English
         Locale('de'),
       ],

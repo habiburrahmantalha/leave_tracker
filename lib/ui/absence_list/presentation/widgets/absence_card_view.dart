@@ -14,42 +14,39 @@ class AbsenceCardView extends StatelessWidget {
   final Absence data;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
 
     return RawButton(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       onTap: (){
 
       },
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    MemberInfoView(image: data.member?.image ?? "", name: data.member?.name ?? "",),
+                    MemberInfoView(image: data.member?.image ?? '', name: data.member?.name ?? '', key: Key(data.member?.userId?.toString() ?? ''),),
                     AbsencePeriodView(start: data.startDate, end: data.endDate,),
                   ],
                 ),
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   TagView(color: data.status.color(context), child: Text(data.status.title, style: Theme.of(context).textTheme.labelMedium,)),
-                  SizedBox(height: 8,),
+                  const SizedBox(height: 8,),
                   TagView(color: data.type.color(context), child: Text(data.type.title, style: Theme.of(context).textTheme.labelMedium,))
                 ],
               )
             ],
           ),
-          AbsenceNoteView(label: "Member Note : ", note: data.memberNote ?? ""),
-          AbsenceNoteView(label: "Admitter Note : ", note: data.admitterNote ?? ""),
+          AbsenceNoteView(label: 'Member Note : ', note: data.memberNote ?? ''),
+          AbsenceNoteView(label: 'Admitter Note : ', note: data.admitterNote ?? ''),
         ],
       ),
     );

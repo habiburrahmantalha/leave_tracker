@@ -21,11 +21,11 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   @override
   void initState() {
     super.initState();
-    notifierFilter = ValueNotifier(widget.selectedFilter ?? AbsenceFilter());
+    notifierFilter = ValueNotifier(widget.selectedFilter ?? const AbsenceFilter());
   }
   // Method to open date range picker
-  Future<void> _selectDateRange(BuildContext context, DateTimeRange? selectedDateRange, ValueChanged<DateTimeRange> onSelect) async {
-    DateTimeRange? pickedRange = await showDateRangePicker(
+  Future<void> _selectDateRange(final BuildContext context, final DateTimeRange? selectedDateRange, final ValueChanged<DateTimeRange> onSelect) async {
+    final DateTimeRange? pickedRange = await showDateRangePicker(
       context: context,
       firstDate: DateTime(2020),
       lastDate: DateTime(2025),
@@ -40,10 +40,10 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
 
   // Build method for BottomSheet UI
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ValueListenableBuilder(
         valueListenable: notifierFilter,
-        builder: (context, notifierValue, child){
+        builder: (final context, final notifierValue, final child){
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
@@ -53,32 +53,32 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Filter", style: Theme.of(context).textTheme.headlineSmall),
+                    Text('Filter', style: Theme.of(context).textTheme.headlineSmall),
                     RawButton(
-                        padding: EdgeInsets.all(8),
-                        child: Text("Reset", style: Theme.of(context).textTheme.titleMedium),
+                        padding: const EdgeInsets.all(8),
+                        child: Text('Reset', style: Theme.of(context).textTheme.titleMedium),
                         onTap: (){
-                          notifierFilter.value = AbsenceFilter();
+                          notifierFilter.value = const AbsenceFilter();
                         })
                   ],
                 ),
-                Divider(height: 24,),
+                const Divider(height: 24,),
                 // Absence Type Dropdown
-                Text("Absence Type", style: Theme.of(context).textTheme.labelMedium),
+                Text('Absence Type', style: Theme.of(context).textTheme.labelMedium),
                 const SizedBox(height: 8.0),
                 DropdownButtonFormField<AbsenceType>(
                   value: notifierValue.type,
-                  hint: Text("Select Absence Type"),
-                  onChanged: (value) {
+                  hint: const Text('Select Absence Type'),
+                  onChanged: (final value) {
                     notifierFilter.value = notifierValue.copyWith(type: value);
                   },
-                  items: AbsenceType.values.map((AbsenceType type) {
+                  items: AbsenceType.values.map((final AbsenceType type) {
                     return DropdownMenuItem<AbsenceType>(
                       value: type,
                       child: Text(type.title),
                     );
                   }).toList(),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -86,21 +86,21 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 const SizedBox(height: 16.0),
 
                 // Absence Status Dropdown
-                Text("Absence Status", style: Theme.of(context).textTheme.labelMedium),
+                Text('Absence Status', style: Theme.of(context).textTheme.labelMedium),
                 const SizedBox(height: 8.0),
                 DropdownButtonFormField<AbsenceStatus>(
                   value: notifierValue.status,
-                  hint: Text("Select Status"),
-                  onChanged: (value) {
+                  hint: const Text('Select Status'),
+                  onChanged: (final value) {
                     notifierFilter.value = notifierValue.copyWith(status: value);
                   },
-                  items: AbsenceStatus.values.map((AbsenceStatus status) {
+                  items: AbsenceStatus.values.map((final AbsenceStatus status) {
                     return DropdownMenuItem<AbsenceStatus>(
                       value: status,
                       child: Text(status.title),
                     );
                   }).toList(),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -108,26 +108,26 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 const SizedBox(height: 16.0),
 
                 // Date Range Picker
-                Text("Select Date Range", style: Theme.of(context).textTheme.labelMedium),
+                Text('Select Date Range', style: Theme.of(context).textTheme.labelMedium),
                 const SizedBox(height: 8.0),
                 InkWell(
-                  onTap: () => _selectDateRange(context, notifierValue.dateTimeRange, (DateTimeRange value){
+                  onTap: () => _selectDateRange(context, notifierValue.dateTimeRange, (final DateTimeRange value){
                     notifierFilter.value = notifierValue.copyWith(dateTimeRange: value);
                   } ),
                   child: InputDecorator(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: "Pick a date range",
+                      hintText: 'Pick a date range',
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           notifierValue.dateTimeRange == null
-                              ? "Start Date - End Date"
-                              : "${notifierValue.dateTimeRange!.start.toddMMMyy()} - ${notifierValue.dateTimeRange!.end.toddMMMyy()}",
+                              ? 'Start Date - End Date'
+                              : '${notifierValue.dateTimeRange!.start.toddMMMyy()} - ${notifierValue.dateTimeRange!.end.toddMMMyy()}',
                         ),
-                        Icon(Icons.calendar_today),
+                        const Icon(Icons.calendar_today),
                       ],
                     ),
                   ),
@@ -136,11 +136,11 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                 const SizedBox(height: 24.0),
 
                 RawButton(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Apply Filters", style: Theme.of(context).textTheme.titleMedium),
+                        Text('Apply Filters', style: Theme.of(context).textTheme.titleMedium),
                       ],
                     ),
                     onTap: (){

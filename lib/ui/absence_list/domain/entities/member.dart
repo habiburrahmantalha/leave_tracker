@@ -17,7 +17,7 @@ class Member extends Equatable {
   final int? userId;
 
   // Factory constructor to create MemberEntity from MemberModel
-  factory Member.fromModel(MemberModel model) {
+  factory Member.fromModel(final MemberModel model) {
     return Member(
       crewId: model.crewId,
       id: model.id,

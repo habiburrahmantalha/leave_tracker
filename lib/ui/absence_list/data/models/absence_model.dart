@@ -14,18 +14,18 @@ class AbsenceModel {
     this.status,
     this.admitterNote,});
 
-  AbsenceModel.fromJson(dynamic json) {
-    id = json['id'];
+  AbsenceModel.fromJson(json) {
+    id = json['id'] as int?;
     member = json['member'] != null ? MemberModel.fromJson(json['member']) : null;
-    type = json['type'];
-    confirmedAt = json['confirmedAt'];
-    createdAt = json['createdAt'];
-    rejectedAt = json['rejectedAt'];
-    startDate = json['startDate'];
-    endDate = json['endDate'];
-    memberNote = json['memberNote'];
-    status = json['status'];
-    admitterNote = json['admitterNote'];
+    type = json['type'] as String?;
+    confirmedAt = json['confirmedAt'] as String?;
+    createdAt = json['createdAt'] as String?;
+    rejectedAt = json['rejectedAt'] as String?;
+    startDate = json['startDate'] as String?;
+    endDate = json['endDate'] as String?;
+    memberNote = json['memberNote'] as String?;
+    status = json['status'] as String?;
+    admitterNote = json['admitterNote'] as String?;
   }
   int? id;
   MemberModel? member;

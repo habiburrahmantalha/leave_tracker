@@ -3,25 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:leave_tracker/core/constants/enums.dart';
 import 'package:oktoast/oktoast.dart';
 
-void printDebug(Object? object) {
+void printDebug(final Object? object) {
   if(kDebugMode){
     print(object);
   }
 }
 
-void showCustomBottomSheet(BuildContext context,{
-  required Widget child,
-  bool isScrollControlled = true,
-  bool isDismissible = true
+void showCustomBottomSheet(final BuildContext context,{
+  required final Widget child,
+  final bool isScrollControlled = true,
+  final bool isDismissible = true
 }){
-  showModalBottomSheet(
+  showModalBottomSheet<void>(
       context: context,
       isScrollControlled: isScrollControlled,
       useSafeArea: true,
-      enableDrag: true,
       showDragHandle: true,
       isDismissible: isDismissible,
-      builder: (context){
+      builder: (final context){
         return SafeArea(
           child: Padding(
             padding: MediaQuery.of(context).viewInsets,
@@ -32,7 +31,7 @@ void showCustomBottomSheet(BuildContext context,{
   );
 }
 
-showOkToast(String message, {ToastType type = ToastType.regular}){
+void showOkToast(final String message, {final ToastType type = ToastType.regular}){
   showToast(
       message,
       position: ToastPosition.bottom,

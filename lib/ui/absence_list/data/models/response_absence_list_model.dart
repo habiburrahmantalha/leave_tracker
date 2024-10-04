@@ -7,16 +7,16 @@ class ResponseAbsenceListModel {
       this.page, 
       this.limit,});
 
-  ResponseAbsenceListModel.fromJson(dynamic json) {
-    totalAbsences = json['totalAbsences'];
+  ResponseAbsenceListModel.fromJson( json) {
+    totalAbsences = json['totalAbsences'] as int?;
     if (json['absences'] != null) {
       absences = [];
       json['absences'].forEach((v) {
         absences?.add(AbsenceModel.fromJson(v));
       });
     }
-    page = json['page'];
-    limit = json['limit'];
+    page = json['page'] as int?;
+    limit = json['limit'] as int?;
   }
   int? totalAbsences;
   List<AbsenceModel>? absences;

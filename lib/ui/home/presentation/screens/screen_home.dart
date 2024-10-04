@@ -10,7 +10,7 @@ import 'package:leave_tracker/ui/home/presentation/blocs/home_cubit.dart';
 import 'package:leave_tracker/ui/settings/presentation/pages/page_settings.dart';
 
 class ScreenHome extends StatefulWidget {
-  static const String routeName = "/";
+  static const String routeName = '/';
 
   const ScreenHome({super.key});
 
@@ -29,7 +29,7 @@ class _ScreenHomeState extends State<ScreenHome> {
     super.initState();
 
     _controller = PageController(
-      initialPage: 0,
+
     );
   }
 
@@ -40,25 +40,25 @@ class _ScreenHomeState extends State<ScreenHome> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (final context) => HomeCubit(),
       child: BlocBuilder<HomeCubit, HomeState>(
-        builder: (context, state) {
+        builder: (final context, final state) {
           return Scaffold(
             body: PageView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _controller,
-              onPageChanged: (newPage) {
+              onPageChanged: (final newPage) {
                 context.read<HomeCubit>().setSelectedTab(newPage);
               },
               children: [
                 BlocProvider(
-                  create: (context) => AbsenceBloc(UseCaseAbsenceList(RepositoryAbsenceListImplementation()))
-                    ..add(GetListEvent()),
-                  child: PageAbsenceList(),
+                  create: (final context) => AbsenceBloc(UseCaseAbsenceList(RepositoryAbsenceListImplementation()))
+                    ..add(const GetListEvent()),
+                  child: const PageAbsenceList(),
                 ),
-                PageSettings()
+                const PageSettings()
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(
@@ -66,19 +66,17 @@ class _ScreenHomeState extends State<ScreenHome> {
               showSelectedLabels: true,
               showUnselectedLabels: true,
               currentIndex: state.selectedTab ?? 0,
-              iconSize: 24,
               unselectedFontSize: 14,
-              selectedFontSize: 14,
-              onTap: (index) {
+              onTap: (final index) {
                 _controller.jumpToPage(index);
               },
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  label: "Absence",
+                  label: 'Absence',
                   icon: Image.asset(Assets.imagesAbsent, height: 24, color: Theme.of(context).iconTheme.color,),
                 ),
                 BottomNavigationBarItem(
-                  label: "settings",
+                  label: 'settings',
                   icon: Image.asset(Assets.imagesSettings, height: 24, color: Theme.of(context).iconTheme.color,),
                 ),
               ],

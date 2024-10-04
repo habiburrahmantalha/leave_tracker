@@ -11,15 +11,14 @@ class AbsenceNoteView extends StatelessWidget {
   final String label;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Visibility(
         visible: note.isNotEmpty,
         child: Column(
           children: [
-            Divider(thickness: 0.3,),
+            const Divider(thickness: 0.3,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
                   child: Text.rich(

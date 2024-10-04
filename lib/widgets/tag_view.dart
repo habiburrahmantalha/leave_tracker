@@ -16,7 +16,7 @@ class TagView extends StatelessWidget {
   final Color? borderColor;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return IntrinsicWidth(
       child: Container(
         alignment: Alignment.center,

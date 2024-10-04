@@ -29,9 +29,9 @@ class PaginationListView extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return NotificationListener<ScrollNotification>(
-      onNotification: (scrollNotification) => onNotificationUpdate(scrollNotification, status == LoadingStatus.loading),
+      onNotification: (final scrollNotification) => onNotificationUpdate(scrollNotification, status == LoadingStatus.loading),
       child: count == 0 && status == LoadingStatus.loading ?
       loadingView ?? const LoadingIndicator() :
       status == LoadingStatus.success && count == 0 ? emptyView ?? const SizedBox.shrink() :
@@ -42,8 +42,8 @@ class PaginationListView extends StatelessWidget {
         shrinkWrap: true,
         itemCount: count + 1,
         reverse: reverse,
-        separatorBuilder: (context, index) => index == count-1 ? const SizedBox.shrink() : separator ?? Container(),
-        itemBuilder: (context, index)=> index == count ?
+        separatorBuilder: (final context, final index) => index == count-1 ? const SizedBox.shrink() : separator ?? Container(),
+        itemBuilder: (final context, final index)=> index == count ?
         status == LoadingStatus.loading ? loadingView ?? const LoadingIndicator() : const SizedBox.shrink()
             : itemBuilder(context, index),
       )

@@ -9,10 +9,10 @@ class UseCaseAbsenceList {
 
   UseCaseAbsenceList(this.repository);
 
-  Future<ResponseAbsenceList> getAbsenceList({String? filter}) async {
-    ResponseAbsenceListModel response = await repository.getAbsenceList(filter);
+  Future<ResponseAbsenceList> getAbsenceList({final String? filter}) async {
+    final ResponseAbsenceListModel response = await repository.getAbsenceList(filter);
     return ResponseAbsenceList(
-      list: (response.absences ?? []).map((e) => Absence.fromModel(e)).toList(),
+      list: (response.absences ?? []).map((final e) => Absence.fromModel(e)).toList(),
       currentPage: response.page ?? 1,
       totalPage: ((response.totalAbsences ?? 1) / 10).ceil(),
       totalCount: response.totalAbsences ?? 0,

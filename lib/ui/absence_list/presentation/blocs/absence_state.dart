@@ -27,12 +27,12 @@ class AbsenceState extends BaseStateList {
 
   @override
   AbsenceState copyWith({
-    int? currentPage,
-    int? totalPage,
-    int? totalCount,
-    LoadingStatus? status,
-    List<Absence>? list,
-    AbsenceFilter? selectedFilter,
+    final int? currentPage,
+    final int? totalPage,
+    final int? totalCount,
+    final LoadingStatus? status,
+    final List<Absence>? list,
+    final AbsenceFilter? selectedFilter,
   }) {
     return AbsenceState(
       currentPage: currentPage ?? this.currentPage,

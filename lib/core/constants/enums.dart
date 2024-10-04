@@ -12,27 +12,27 @@ enum LoadingStatus {
 }
 
 enum ToastType{
-  regular("regular"),
-  warning("warning"),
-  error("error"),
-  success("success");
+  regular('regular'),
+  warning('warning'),
+  error('error'),
+  success('success');
 
   const ToastType(this.value);
   final String value;
 }
 
 enum AbsenceType {
-  vacation(title: "Vacation", value: "vacation"),
-  sickness(title: "Sickness", value: "sickness");
+  vacation(title: 'Vacation', value: 'vacation'),
+  sickness(title: 'Sickness', value: 'sickness');
   const AbsenceType({required this.value, required this.title});
   final String value;
   final String title;
 }
 
 enum AbsenceStatus {
-  requested(title: "Requested", value: "requested"),
-  confirmed(title: "Confirmed", value: "confirmed"),
-  rejected(title: "Rejected", value: "rejected");
+  requested(title: 'Requested', value: 'requested'),
+  confirmed(title: 'Confirmed', value: 'confirmed'),
+  rejected(title: 'Rejected', value: 'rejected');
   const AbsenceStatus({required this.value, required this.title});
   final String value;
   final String title;

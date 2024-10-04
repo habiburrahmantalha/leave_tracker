@@ -30,7 +30,7 @@ class EmptyView extends StatelessWidget {
   final double? descriptionFontSize;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ListView(
       shrinkWrap: true,
       //physics: const ClampingScrollPhysics(),
@@ -43,7 +43,7 @@ class EmptyView extends StatelessWidget {
         Center(child: Text(title,  style: Theme.of(context).textTheme.labelLarge)),
         const SizedBox(height: 12,),
         if(description != null)
-        Center(child: Text(description ?? "", textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyMedium,)),
+        Center(child: Text(description ?? '', textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyMedium,)),
         const SizedBox(height: 24,),
         if(button != null)
           button!

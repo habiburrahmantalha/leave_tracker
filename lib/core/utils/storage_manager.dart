@@ -8,17 +8,17 @@ class StorageManager {
 
   late FlutterSecureStorage storage;
 
-  create() {
+  void create() {
     storage = FlutterSecureStorage(
       aOptions: AndroidOptions.defaultOptions.copyWith(encryptedSharedPreferences: true)
     );
   }
 
-  void setString(String key, String value) async => await storage.write(key: key, value: value);
+  void setString(final String key, final String value) async => await storage.write(key: key, value: value);
 
-  Future<String> getString(String key) async => await storage.read(key: key) ?? "";
+  Future<String> getString(final String key) async => await storage.read(key: key) ?? '';
 
   void clear() async => await storage.deleteAll();
 
-  void remove(String key) async => await storage.delete(key: key);
+  void remove(final String key) async => await storage.delete(key: key);
 }
