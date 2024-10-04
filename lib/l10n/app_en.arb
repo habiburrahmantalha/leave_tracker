@@ -12,6 +12,8 @@
     "rejected": "Rejected",
 
     "absence_list": "Absence List",
+    "absence_manager": "Absence Manager",
+    "absences_found": "{count, plural, =0 {No absences found} =1 {1 absence found} other {{count} absences found}}",
     "item_not_found": "Item not found",
     "member_note": "Member Note",
     "admitter_note": "Admitter Note",
@@ -27,7 +29,7 @@
     "start_date_end_date": "Start Date - End Date",
     "apply_filters": "Apply Filters",
 
-    "absence": "Absence",
+    "absences": "Absences",
     "settings": "Settings",
     "language": "Language",
     "theme": "Theme",

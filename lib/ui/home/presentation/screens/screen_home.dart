@@ -73,7 +73,7 @@ class _ScreenHomeState extends State<ScreenHome> {
               },
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  label: context.local.absence,
+                  label: context.local.absences,
                   icon: Image.asset(Assets.imagesAbsent, height: 24, color: Theme.of(context).iconTheme.color,),
                 ),
                 BottomNavigationBarItem(

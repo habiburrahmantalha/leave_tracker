@@ -37,7 +37,7 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
         final List<Absence> list = state.list ?? [];
         return Scaffold(
           appBar: AppBar(
-            title: Text(context.local.absence_list),
+            title: Text(context.local.absence_manager),
             actions: [
               RawButton(
                   padding: const EdgeInsets.all(8),
@@ -68,9 +68,14 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
             ],
           ),
           body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SelectedFilterView(),
-
+              if(state.status.isSuccess)
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: R.dimension.screenHorizontalPadding, vertical: 4),
+                child: Text(context.local.absences_found(num.parse(state.totalCount?.toString() ?? '0')), style: Theme.of(context).textTheme.labelLarge,),
+              ),
               Expanded(
                 child: PaginationListView(
                   padding: EdgeInsets.symmetric(horizontal: R.dimension.screenHorizontalPadding, vertical: R.dimension.screenVerticalPadding),
@@ -88,7 +93,7 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
                   separator: const SizedBox(height: 12,),
                   emptyView: EmptyView(
                     image: Image.asset(Assets.imagesEmpty),
-                    title: context.local.item_not_found,
+                    title: state.status.isFailed ? context.local.something_went_wrong_please_try_again : context.local.item_not_found,
                   ),
                   loadingView: list.isEmpty ? const ShimmerCardList() : const Padding(
                     padding: EdgeInsets.only(top: 12),

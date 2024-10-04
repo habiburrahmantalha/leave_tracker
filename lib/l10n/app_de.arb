@@ -11,6 +11,8 @@
     "rejected": "Abgelehnt",
 
     "absence_list": "Abwesenheitsliste",
+    "absence_manager": "Abwesenheitsmanager",
+    "absences_found": "{count, plural, =0 {Keine Abwesenheiten gefunden} =1 {1 Abwesenheit gefunden} other {{count} Abwesenheiten gefunden}}",
     "item_not_found": "Artikel nicht gefunden",
     "member_note": "Mitgliedsnotiz",
     "admitter_note": "Zulassungsnotiz",
@@ -26,7 +28,7 @@
     "start_date_end_date": "Startdatum - Enddatum",
     "apply_filters": "Filter anwenden",
 
-    "absence": "Abwesenheit",
+    "absences": "Abwesenheiten",
     "settings": "Einstellungen",
     "language": "Sprache",
     "theme": "Thema",
