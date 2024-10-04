@@ -9,9 +9,14 @@ import 'absence_note_view.dart';
 import 'absence_period_view.dart';
 import 'member_info_view.dart';
 
+/// A widget that displays information about an absence in a card format.
 class AbsenceCardView extends StatelessWidget {
+  /// Creates an instance of [AbsenceCardView].
+  ///
+  /// The [data] parameter is required and represents the absence information to be displayed.
   const AbsenceCardView({super.key, required this.data});
 
+  /// The absence data that this card will display.
   final Absence data;
 
   @override

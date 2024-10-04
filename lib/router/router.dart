@@ -1,10 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:leave_tracker/ui/home/presentation/screens/screen_home.dart';
-
-class RouterPaths {
-
-}
-
+///List of router paths
 final List<GoRoute> routes = [
   GoRoute(
     path: ScreenHome.routeName,

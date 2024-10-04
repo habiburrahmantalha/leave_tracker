@@ -11,7 +11,13 @@ import 'package:leave_tracker/ui/settings/presentation/blocs/settings_cubit.dart
 import 'package:leave_tracker/widgets/loading_indicator.dart';
 import 'package:leave_tracker/widgets/tag_view.dart';
 
+/// A widget that displays the settings page of the application.
+///
+/// This page allows users to customize their preferences, including language and theme settings.
 class PageSettings extends StatelessWidget {
+  /// Creates a [PageSettings] widget.
+  ///
+  /// This widget serves as the settings screen where users can modify their preferences.
   const PageSettings({super.key});
 
   @override
@@ -79,7 +85,9 @@ class PageSettings extends StatelessWidget {
   }
 }
 
+/// Test widget to UI debug
 class WidgetColorCheck extends StatelessWidget {
+  ///Created a instance
   const WidgetColorCheck({super.key});
 
   @override

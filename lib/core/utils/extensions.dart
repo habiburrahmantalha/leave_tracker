@@ -3,13 +3,16 @@ import 'package:intl/intl.dart';
 import 'package:leave_tracker/core/constants/enums.dart';
 import 'package:leave_tracker/core/resource/theme.dart';
 
+/// [String] extension
 extension StringExtension on String {
+  /// capitalize string
   String capitalize(){
     if(isEmpty) return  '';
     return '${this[0].toUpperCase()}${substring(1)}';
   }
 }
 
+/// easier access to check app theme mode
 extension DarkMode on BuildContext {
   /// is dark mode currently enabled?
   bool get isDarkMode {
@@ -18,8 +21,10 @@ extension DarkMode on BuildContext {
   }
 }
 
+/// [DateTime] extension
 extension DateTimeExtension on DateTime?{
 
+  /// convert date time to dd MMM, yyyy format
   String toddMMMyy(){
     if(this != null){
       final DateFormat dateFormat = DateFormat('dd MMM, yyyy');
@@ -30,7 +35,9 @@ extension DateTimeExtension on DateTime?{
   }
 }
 
+///[AbsenceType] extension to get theme based color
 extension AbsenceTypeExtension on AbsenceType? {
+  /// return color
   Color? color(final BuildContext context) {
     return switch(this) {
       null => Colors.transparent,
@@ -40,7 +47,9 @@ extension AbsenceTypeExtension on AbsenceType? {
   }
 }
 
+///[AbsenceStatus] extension to get theme based color
 extension AbsenceStatusExtension on AbsenceStatus? {
+  /// return color
   Color? color(final BuildContext context) {
     return switch(this) {
       null => Colors.transparent,

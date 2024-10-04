@@ -19,6 +19,7 @@ import 'package:oktoast/oktoast.dart';
 import 'firebase_options.dart';
 import 'router/router.dart';
 
+///API auth key for REST API
 String apiKey = '';
 
 Future<void> main() async {
@@ -50,8 +51,13 @@ Future<void> main() async {
     child: const OKToast(child: MyApp()),
   ),);
 }
-
+/// The main application widget.
+///
+/// This widget serves as the root of the application, providing the overall
+/// structure and theme. It initializes various configurations such as
+/// localization, theme mode, and routing.
 class MyApp extends StatefulWidget {
+  /// Creates an instance of [MyApp].
   const MyApp({super.key});
 
   @override

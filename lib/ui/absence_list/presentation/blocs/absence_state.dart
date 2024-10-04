@@ -1,10 +1,15 @@
 part of 'absence_bloc.dart';
 
+/// Represents the state of the absence list.
 class AbsenceState extends BaseStateList {
 
+  /// The list of absences.
   final List<Absence>? list;
+
+  /// The currently selected filter for the absence list.
   final AbsenceFilter? selectedFilter;
 
+  /// Creates an instance of [AbsenceState].
   const AbsenceState({
     super.currentPage,
     super.totalPage,

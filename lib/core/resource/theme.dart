@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+/// A class that encapsulates the Material Design theme for the application.
 class MaterialTheme {
+  /// The text theme for the application.
   final TextTheme textTheme;
 
+  /// Creates a [MaterialTheme] instance with the given text theme.
   const MaterialTheme(this.textTheme);
 
+  /// Creates and returns a light color scheme.
   static ColorScheme lightScheme() {
     return const ColorScheme(
       brightness: Brightness.light,
@@ -58,6 +62,7 @@ class MaterialTheme {
   }
 
 
+  ///Customs colors for light theme
   ThemeData light() {
     return theme(lightScheme(), [
       CustomStatusColors(
@@ -71,6 +76,7 @@ class MaterialTheme {
   }
 
 
+  /// Creates and returns a dark color scheme.
   static ColorScheme darkScheme() {
     return const ColorScheme(
       brightness: Brightness.dark,
@@ -123,6 +129,7 @@ class MaterialTheme {
   }
 
 
+  ///Customs colors for dark theme
   ThemeData dark() {
     return theme(darkScheme(), [
       CustomStatusColors(
@@ -135,6 +142,7 @@ class MaterialTheme {
     ]);
   }
 
+  ///Create the theme
   ThemeData theme(final ColorScheme colorScheme, final List<ThemeExtension> list,  ) => ThemeData(
     useMaterial3: true,
     brightness: colorScheme.brightness,
@@ -149,20 +157,31 @@ class MaterialTheme {
   );
 }
 
-// Define CustomStatusColors ThemeExtension
+/// Define CustomStatusColors ThemeExtension
 class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
-  final Color requestedColor;
-  final Color rejectedColor;
-  final Color confirmedColor;
-  final Color vacationColor;  // New for vacation
-  final Color sicknessColor;  // New for sickness
 
+  /// The color for requested absence status.
+  final Color requestedColor;
+
+  /// The color for rejected absence status.
+  final Color rejectedColor;
+
+  /// The color for confirmed absence status.
+  final Color confirmedColor;
+
+  /// The color for vacation type absence.
+  final Color vacationColor;
+
+  /// The color for sickness type absence.
+  final Color sicknessColor;
+
+  ///Creates the instance
   CustomStatusColors({
     required this.requestedColor,
     required this.rejectedColor,
     required this.confirmedColor,
-    required this.vacationColor,  // New
-    required this.sicknessColor,  // New
+    required this.vacationColor,
+    required this.sicknessColor,
   });
 
   @override
@@ -196,7 +215,7 @@ class CustomStatusColors extends ThemeExtension<CustomStatusColors> {
   }
 }
 
-
+///Theme for text
 TextTheme createTextTheme(
     final BuildContext context, final String bodyFontString, final String displayFontString,) {
   final TextTheme baseTextTheme = Theme.of(context).textTheme;

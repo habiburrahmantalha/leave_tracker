@@ -10,9 +10,12 @@ import 'package:leave_tracker/ui/absence_list/presentation/pages/page_absence_li
 import 'package:leave_tracker/ui/home/presentation/blocs/home_cubit.dart';
 import 'package:leave_tracker/ui/settings/presentation/pages/page_settings.dart';
 
+///Home screen widget
 class ScreenHome extends StatefulWidget {
+  ///named route for home screen
   static const String routeName = '/';
 
+  ///Creates instance
   const ScreenHome({super.key});
 
   @override

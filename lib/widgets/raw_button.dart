@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// A customizable button widget that can handle tap and long press actions.
 class RawButton extends StatelessWidget {
+  /// Creates a [RawButton] widget.
   const RawButton({
     super.key,
     required this.child,
@@ -13,13 +15,28 @@ class RawButton extends StatelessWidget {
     this.elevation = 0,
   });
 
+  /// The child widget displayed inside the card.
   final Widget child;
+
+  /// Callback function executed on tap.
   final Function onTap;
+
+  /// Optional callback function executed on long press.
   final Function? onLongPress;
+
+  /// The corner radius of the card.
   final double radius;
+
+  /// The background color of the card.
   final Color? color;
+
+  /// The padding inside the card.
   final EdgeInsetsGeometry padding;
+
+  /// The margin outside the card.
   final EdgeInsetsGeometry margin;
+
+  /// The elevation of the card.
   final double elevation;
 
   @override

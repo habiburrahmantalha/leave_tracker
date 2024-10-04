@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// A customizable widget for displaying an empty view.
 class EmptyView extends StatelessWidget {
+  /// Creates a [EmptyView] widget.
   const EmptyView({super.key,
     this.image,
     required this.title,
@@ -16,17 +18,40 @@ class EmptyView extends StatelessWidget {
     this.descriptionFontSize,
   });
 
+  /// An optional image displayed at the top of the card.
   final Widget? image;
+
+  /// The title text displayed prominently on the card.
   final String title;
+
+  /// An optional description text displayed below the title.
   final String? description;
+
+  /// An optional button displayed at the bottom of the card.
   final Widget? button;
+
+  /// Optional padding applied to the top of the card.
   final double? paddingTop;
+
+  /// Optional horizontal padding applied to the card.
   final double? horizontal;
+
+  /// Optional color for the title text.
   final Color? titleColor;
+
+  /// Optional color for the description text.
   final Color? descriptionColor;
+
+  /// Optional font weight for the title text.
   final FontWeight? titleWeight;
+
+  /// Optional font weight for the description text.
   final FontWeight? descriptionWeight;
+
+  /// Optional font size for the title text.
   final double? titleFontSize;
+
+  /// Optional font size for the description text.
   final double? descriptionFontSize;
 
   @override

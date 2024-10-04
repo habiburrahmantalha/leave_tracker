@@ -11,7 +11,9 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
 
   exclude:
-    -test/**
+    - test/**
+    - lib/ui/absence_list/data/models/**
+    - lib/generated/**
 
   language:
     strict-casts: true
@@ -80,7 +82,7 @@ linter:
     invariant_booleans: true # Ensure booleans aren't always the same.
 
     # --- Documentation ---
-    public_member_api_docs: false # Enforce documentation for public APIs.
+    public_member_api_docs: true # Enforce documentation for public APIs.
     slash_for_doc_comments: true # Use triple-slash comments for documentation comments.
 
 

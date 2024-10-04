@@ -16,7 +16,9 @@ import 'package:leave_tracker/widgets/pagination_list_view.dart';
 import 'package:leave_tracker/widgets/raw_button.dart';
 import 'package:leave_tracker/widgets/shimmer_absence_card.dart';
 
+/// A widget that represents the absence list page.
 class PageAbsenceList extends StatefulWidget {
+  /// Creates an instance of [PageAbsenceList].
   const PageAbsenceList({super.key});
 
   @override

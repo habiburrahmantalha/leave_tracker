@@ -5,10 +5,22 @@ import 'package:leave_tracker/l10n/localization.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence_filter.dart';
 import 'package:leave_tracker/widgets/raw_button.dart';
 
+/// A bottom sheet widget for filtering absences based on various criteria.
 class FilterBottomSheet extends StatefulWidget {
-  const FilterBottomSheet({super.key, this.selectedFilter, required this.onComplete});
+  /// Creates an instance of [FilterBottomSheet].
+  ///
+  /// The [onComplete] parameter is required and is called when the filter is applied.
+  /// The [selectedFilter] parameter can be provided to pre-select filters.
+  const FilterBottomSheet({
+    super.key,
+    this.selectedFilter,
+    required this.onComplete,
+  });
 
+  /// Callback function that is called when the filter selection is completed.
   final ValueChanged<AbsenceFilter> onComplete;
+
+  /// The currently selected filter. Can be null if no filter is selected.
   final AbsenceFilter? selectedFilter;
 
   @override

@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:leave_tracker/core/utils/extensions.dart';
 
+/// A widget that displays an absence note with an associated label.
 class AbsenceNoteView extends StatelessWidget {
+  /// Creates an instance of [AbsenceNoteView].
+  ///
+  /// The [note] and [label] parameters are required.
   const AbsenceNoteView({
     super.key,
-    required this.note, required this.label,});
+    required this.note,
+    required this.label,
+  });
 
+  /// The content of the absence note.
   final String note;
+
+  /// The label associated with the absence note.
   final String label;
 
   @override

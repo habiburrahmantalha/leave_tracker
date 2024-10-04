@@ -11,10 +11,17 @@ import 'package:leave_tracker/ui/absence_list/domain/usecases/usecase_absence_li
 part 'absence_event.dart';
 part 'absence_state.dart';
 
+/// Represents the BLoC for managing the absence list.
+///
+/// This BLoC handles events related to the absence list,
+/// including fetching, filtering, and updating absence data.
 class AbsenceBloc extends Bloc<BaseEventList, AbsenceState> {
-
+  /// The use case responsible for interacting with the absence data.
   UseCaseAbsenceList useCase;
-
+  /// Creates an instance of [AbsenceBloc].
+  ///
+  /// Takes a [useCase] parameter to handle absence-related operations
+  /// and initializes the state to an empty [AbsenceState].
   AbsenceBloc(this.useCase) : super(const AbsenceState()) {
 
     on<BaseEventList>((final event, final emit) async {

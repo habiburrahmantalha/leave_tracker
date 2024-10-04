@@ -4,7 +4,9 @@ import 'package:leave_tracker/core/utils/extensions.dart';
 import 'package:leave_tracker/ui/absence_list/presentation/blocs/absence_bloc.dart';
 import 'package:leave_tracker/widgets/filter_item_button.dart';
 
+/// Displays the currently selected filters for the view.
 class SelectedFilterView extends StatelessWidget {
+  /// Creates an instance of [SelectedFilterView].
   const SelectedFilterView({
     super.key,
   });

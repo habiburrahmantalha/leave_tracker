@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
+/// A shimmering placeholder for loading content.
 class ShimmerCardView extends StatelessWidget {
+  /// Creates an instance of [ShimmerCardView].
   const ShimmerCardView({super.key});
 
   @override
@@ -112,9 +114,12 @@ class ShimmerCardView extends StatelessWidget {
   }
 }
 
+/// A shimmering placeholder for loading content.
 class ShimmerCardList extends StatelessWidget {
+  /// Creates an instance of [ShimmerCardView].
   const ShimmerCardList({super.key, this.items});
 
+  /// Shimmer card count
   final int? items;
 
   @override

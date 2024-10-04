@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:leave_tracker/core/constants/enums.dart';
 import 'package:oktoast/oktoast.dart';
 
+/// Function for debug print which only print log in debug mode
 void printDebug(final Object? object) {
   if(kDebugMode){
     print(object);
   }
 }
 
+///Function to bottom sheet
 void showCustomBottomSheet(final BuildContext context,{
   required final Widget child,
   final bool isScrollControlled = true,
@@ -31,6 +33,7 @@ void showCustomBottomSheet(final BuildContext context,{
   );
 }
 
+/// function for okToast
 void showOkToast(final String message, {final ToastType type = ToastType.regular}){
   showToast(
       message,

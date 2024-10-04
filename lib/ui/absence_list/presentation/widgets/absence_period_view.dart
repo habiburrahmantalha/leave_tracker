@@ -2,13 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:leave_tracker/core/utils/extensions.dart';
 import 'package:leave_tracker/generated/assets.dart';
 
+/// A widget that displays the absence period with start and end dates.
 class AbsencePeriodView extends StatelessWidget {
+  /// Creates an instance of [AbsencePeriodView].
+  ///
+  /// The [start] and [end] parameters are optional and can be null.
   const AbsencePeriodView({
-    super.key, this.start, this.end,
-
+    super.key,
+    this.start,
+    this.end,
   });
 
+  /// The start date of the absence period.
   final DateTime? start;
+
+  /// The end date of the absence period.
   final DateTime? end;
 
   @override
