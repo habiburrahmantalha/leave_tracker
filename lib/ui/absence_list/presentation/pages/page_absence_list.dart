@@ -13,6 +13,7 @@ import 'package:leave_tracker/ui/absence_list/presentation/widgets/selected_filt
 import 'package:leave_tracker/widgets/empty_view.dart';
 import 'package:leave_tracker/widgets/pagination_list_view.dart';
 import 'package:leave_tracker/widgets/raw_button.dart';
+import 'package:leave_tracker/widgets/shimmer_absence_card.dart';
 
 class PageAbsenceList extends StatefulWidget {
   const PageAbsenceList({super.key});
@@ -87,6 +88,10 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
                   emptyView: EmptyView(
                     image: Image.asset(Assets.imagesEmpty),
                     title: "Item not found",
+                  ),
+                  loadingView: list.isEmpty ? const ShimmerCardList() : Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: ShimmerCardView(),
                   ),
                 ),
               ),
