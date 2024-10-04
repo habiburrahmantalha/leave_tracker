@@ -23,7 +23,7 @@ class AbsencePeriodView extends StatelessWidget {
             const SizedBox(width: 8),
             start == end ?
             Text(start?.toddMMMyy() ?? '', style: Theme.of(context).textTheme.bodyMedium,) :
-            Text("${start?.toddMMMyy() ?? ""} - ${end?.toddMMMyy() ?? ""}", style: Theme.of(context).textTheme.bodyMedium,),
+            Text('${start?.toddMMMyy() ?? ''} - ${end?.toddMMMyy() ?? ''}', style: Theme.of(context).textTheme.bodyMedium,),
           ],
         ),
       ),

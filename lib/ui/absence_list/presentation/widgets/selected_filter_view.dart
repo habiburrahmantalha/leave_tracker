@@ -29,14 +29,14 @@ class SelectedFilterView extends StatelessWidget {
                 children: [
                   if(state.selectedFilter?.type != null)
                     FilterItemButton(
-                      label: state.selectedFilter?.type?.title ?? '',
+                      label: state.selectedFilter?.type?.title(context) ?? '',
                       onClear: (){
                         context.read<AbsenceBloc>().add(SetFilterEvent(state.selectedFilter?.copyWith(removeType: true)));
                       },
                     ),
                   if(state.selectedFilter?.status != null)
                     FilterItemButton(
-                      label: state.selectedFilter?.status?.title ?? '',
+                      label: state.selectedFilter?.status?.title(context) ?? '',
                       onClear: (){
                         context.read<AbsenceBloc>().add(SetFilterEvent(state.selectedFilter?.copyWith(removeStatus: true)));
                       },

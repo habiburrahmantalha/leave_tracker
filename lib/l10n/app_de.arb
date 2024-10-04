@@ -1,11 +1,35 @@
 {
-    "dark": "Dark",
-    "language": "Language",
-    "light": "Light",
-    "settings": "Settings",
-    "something_went_wrong": "Something went wrong",
-    "something_went_wrong_please_try_again": "Something went wrong,\n Please try again",
+    "something_went_wrong": "Etwas ist schief gelaufen",
+    "something_went_wrong_please_try_again": "Etwas ist schief gelaufen,\n Bitte versuchen Sie es erneut",
     "status": "Status",
-    "not_found": "Not found",
-    "theme": "Theme"
+
+    "not_found": "Nicht gefunden",
+    "vacation": "Urlaub",
+    "sickness": "Krankheit",
+    "requested": "Angefragt",
+    "confirmed": "Bestätigt",
+    "rejected": "Abgelehnt",
+
+    "absence_list": "Abwesenheitsliste",
+    "item_not_found": "Artikel nicht gefunden",
+    "member_note": "Mitgliedsnotiz",
+    "admitter_note": "Zulassungsnotiz",
+    "filter": "Filter",
+    "reset": "Zurücksetzen",
+
+    "absence_type": "Abwesenheitstyp",
+    "select_type": "Typ auswählen",
+    "absence_status": "Abwesenheitsstatus",
+    "select_status": "Status auswählen",
+    "select_date_range": "Datumsbereich auswählen",
+    "pick_a_date_range": "Wählen Sie einen Datumsbereich",
+    "start_date_end_date": "Startdatum - Enddatum",
+    "apply_filters": "Filter anwenden",
+
+    "absence": "Abwesenheit",
+    "settings": "Einstellungen",
+    "language": "Sprache",
+    "theme": "Thema",
+    "dark": "Dunkel",
+    "light": "Hell"
 }

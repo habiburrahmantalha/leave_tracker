@@ -4,6 +4,7 @@ import 'package:leave_tracker/core/base_blocs/base_event_list.dart';
 import 'package:leave_tracker/core/resource/resource.dart';
 import 'package:leave_tracker/core/utils/utils.dart';
 import 'package:leave_tracker/generated/assets.dart';
+import 'package:leave_tracker/l10n/localization.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence_filter.dart';
 import 'package:leave_tracker/ui/absence_list/presentation/blocs/absence_bloc.dart';
@@ -36,7 +37,7 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
         final List<Absence> list = state.list ?? [];
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Absence List'),
+            title: Text(context.local.absence_list),
             actions: [
               RawButton(
                   padding: const EdgeInsets.all(8),
@@ -87,7 +88,7 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
                   separator: const SizedBox(height: 12,),
                   emptyView: EmptyView(
                     image: Image.asset(Assets.imagesEmpty),
-                    title: 'Item not found',
+                    title: context.local.item_not_found,
                   ),
                   loadingView: list.isEmpty ? const ShimmerCardList() : const Padding(
                     padding: EdgeInsets.only(top: 12),

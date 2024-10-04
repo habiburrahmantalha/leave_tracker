@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:leave_tracker/l10n/localization.dart';
+
 enum LoadingStatus {
   initial,
   loading,
@@ -22,18 +25,37 @@ enum ToastType{
 }
 
 enum AbsenceType {
-  vacation(title: 'Vacation', value: 'vacation'),
-  sickness(title: 'Sickness', value: 'sickness');
-  const AbsenceType({required this.value, required this.title});
+  vacation(value: 'vacation'),
+  sickness(value: 'sickness');
+  const AbsenceType({required this.value});
   final String value;
-  final String title;
+
+
+  String title(final BuildContext context) {
+    switch (this) {
+      case AbsenceType.vacation:
+        return context.local.vacation;
+      case AbsenceType.sickness:
+        return context.local.sickness;
+    }
+  }
 }
 
 enum AbsenceStatus {
-  requested(title: 'Requested', value: 'requested'),
-  confirmed(title: 'Confirmed', value: 'confirmed'),
-  rejected(title: 'Rejected', value: 'rejected');
-  const AbsenceStatus({required this.value, required this.title});
+  requested(value: 'requested'),
+  confirmed(value: 'confirmed'),
+  rejected(value: 'rejected');
+  const AbsenceStatus({required this.value});
   final String value;
-  final String title;
+
+  String title(final BuildContext context) {
+    switch (this) {
+      case AbsenceStatus.requested:
+        return context.local.requested;
+      case AbsenceStatus.confirmed:
+        return context.local.confirmed;
+      case AbsenceStatus.rejected:
+        return context.local.rejected;
+    }
+  }
 }

@@ -1,10 +1,10 @@
 part of 'settings_cubit.dart';
 
 class SettingsState extends Equatable {
-  final String languageCode;
-  final ThemeMode theme;
+  final String? languageCode;
+  final ThemeMode? theme;
 
-  const SettingsState({this.languageCode = 'en', this.theme = ThemeMode.light});
+  const SettingsState({this.languageCode, this.theme});
 
   SettingsState copyWith({final String? languageCode, final ThemeMode? theme}) {
     return SettingsState(

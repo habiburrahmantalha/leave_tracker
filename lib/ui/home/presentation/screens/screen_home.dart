@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:leave_tracker/core/base_blocs/base_event_list.dart';
 import 'package:leave_tracker/generated/assets.dart';
+import 'package:leave_tracker/l10n/localization.dart';
 import 'package:leave_tracker/ui/absence_list/data/repositories/repository_absence_list_implementation.dart';
 import 'package:leave_tracker/ui/absence_list/domain/usecases/usecase_absence_list.dart';
 import 'package:leave_tracker/ui/absence_list/presentation/blocs/absence_bloc.dart';
@@ -72,11 +73,11 @@ class _ScreenHomeState extends State<ScreenHome> {
               },
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  label: 'Absence',
+                  label: context.local.absence,
                   icon: Image.asset(Assets.imagesAbsent, height: 24, color: Theme.of(context).iconTheme.color,),
                 ),
                 BottomNavigationBarItem(
-                  label: 'settings',
+                  label: context.local.settings,
                   icon: Image.asset(Assets.imagesSettings, height: 24, color: Theme.of(context).iconTheme.color,),
                 ),
               ],

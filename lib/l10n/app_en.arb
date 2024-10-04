@@ -1,11 +1,36 @@
 {
-    "dark": "Dark",
-    "language": "Language",
-    "light": "Light",
-    "settings": "Settings",
+
     "something_went_wrong": "Something went wrong",
     "something_went_wrong_please_try_again": "Something went wrong,\n Please try again",
     "status": "Status",
+
     "not_found": "Not found",
-    "theme": "Theme"
+    "vacation": "Vacation",
+    "sickness": "Sickness",
+    "requested": "Requested",
+    "confirmed": "Confirmed",
+    "rejected": "Rejected",
+
+    "absence_list": "Absence List",
+    "item_not_found": "Item not found",
+    "member_note": "Member Note",
+    "admitter_note": "Admitter Note",
+    "filter": "Filter",
+    "reset": "Reset",
+
+    "absence_type": "Absence Type",
+    "select_type": "Select Type",
+    "absence_status": "Absence Status",
+    "select_status": "Select Status",
+    "select_date_range": "Select Date Range",
+    "pick_a_date_range": "Pick a date range",
+    "start_date_end_date": "Start Date - End Date",
+    "apply_filters": "Apply Filters",
+
+    "absence": "Absence",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light"
 }

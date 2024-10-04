@@ -77,6 +77,9 @@ class _MyAppState extends State<MyApp> {
       context.read<SettingsCubit>()
           .setAppTheme(MediaQuery.of(context)
           .platformBrightness == Brightness.dark ? ThemeMode.dark : ThemeMode.light);
+
+      context.read<SettingsCubit>()
+          .setLanguageCode(View.of(context).platformDispatcher.locale.languageCode);
     });
   }
 
@@ -84,12 +87,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(final BuildContext context) {
     return MaterialApp.router(
-      title: 'Leave_tracker',
+      title: 'Absence Manager',
       debugShowCheckedModeBanner: false,
       theme: MaterialTheme(createTextTheme(context, 'Montserrat', 'Montserrat')).light(),
       darkTheme: MaterialTheme(createTextTheme(context, 'Montserrat', 'Montserrat')).dark(),
       themeMode: context.watch<SettingsCubit>().state.theme,
-      locale: Locale(context.watch<SettingsCubit>().state.languageCode),
+      //locale: Locale(context.watch<SettingsCubit>().state.languageCode ?? Localizations.localeOf(context).languageCode),
+      locale: context.watch<SettingsCubit>().state.languageCode != null
+          ? Locale(context.watch<SettingsCubit>().state.languageCode!)
+          : View.of(context).platformDispatcher.locale,
       localizationsDelegates: const [
         AppLocalizations.delegate,  // The generated localization delegate
         GlobalMaterialLocalizations.delegate,
