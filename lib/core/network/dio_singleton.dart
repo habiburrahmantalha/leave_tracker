@@ -15,6 +15,11 @@ class DioSingleton {
   /// Returns the singleton instance of DioSingleton.
   static DioSingleton get instance => _singleton;
 
+  // Setter to allow overriding the Dio instance, useful for testing
+  static set instance(final DioSingleton dio) {
+    instance = dio;
+  }
+
   /// The Dio instance used for making API requests.
   late Dio dio;
 
