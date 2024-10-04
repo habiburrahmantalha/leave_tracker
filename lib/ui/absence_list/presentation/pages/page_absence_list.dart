@@ -8,14 +8,41 @@ import 'package:leave_tracker/ui/absence_list/presentation/blocs/absence_bloc.da
 import 'package:leave_tracker/ui/absence_list/presentation/widgets/absence_card_view.dart';
 import 'package:leave_tracker/widgets/empty_view.dart';
 import 'package:leave_tracker/widgets/pagination_list_view.dart';
+import 'package:leave_tracker/widgets/raw_button.dart';
 
-class PageAbsenceList extends StatelessWidget {
+class PageAbsenceList extends StatefulWidget {
   const PageAbsenceList({super.key});
 
   @override
+  State<PageAbsenceList> createState() => _PageAbsenceListState();
+}
+
+class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAliveClientMixin {
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
-      appBar: AppBar(title: Text("Absence List"),),
+      appBar: AppBar(
+        title: Text("Absence List"),
+        actions: [
+          RawButton(
+              padding: EdgeInsets.all(8),
+              margin: EdgeInsets.only(right: 12),
+              onTap: (){},
+              child: Image.asset(Assets.imagesFilter, height: 24, color: Theme.of(context).iconTheme.color,)
+          ),
+          RawButton(
+              padding: EdgeInsets.all(8),
+              margin: EdgeInsets.only(right: 12),
+              onTap: (){},
+              child: Image.asset(Assets.imagesFile, height: 24, color: Theme.of(context).iconTheme.color,)
+          )
+        ],
+      ),
       body: BlocBuilder<AbsenceBloc, AbsenceState>(
         builder: (context, state) {
           List<Absence> list = state.list ?? [];

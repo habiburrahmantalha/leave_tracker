@@ -2,8 +2,13 @@
 class Assets {
   Assets._();
 
+  static const String imagesAbsent = 'assets/images/absent.png';
+  static const String imagesCalendar = 'assets/images/calendar.png';
   static const String imagesDefaultImage = 'assets/images/default_image.jpg';
   static const String imagesEmpty = 'assets/images/empty.png';
+  static const String imagesFile = 'assets/images/file.png';
+  static const String imagesFilter = 'assets/images/filter.png';
+  static const String imagesSettings = 'assets/images/settings.png';
   static const String leaveTracker = '.env';
 
 }
