@@ -6,6 +6,7 @@ class Assets {
   static const String imagesAppIcon = 'assets/images/app_icon.png';
   static const String imagesCalendar = 'assets/images/calendar.png';
   static const String imagesDefaultImage = 'assets/images/default_image.jpg';
+  static const String imagesDownloads = 'assets/images/downloads.png';
   static const String imagesEmpty = 'assets/images/empty.png';
   static const String imagesFile = 'assets/images/file.png';
   static const String imagesFilter = 'assets/images/filter.png';

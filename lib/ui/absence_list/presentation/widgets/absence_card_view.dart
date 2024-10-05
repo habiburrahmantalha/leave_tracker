@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:leave_tracker/core/utils/extensions.dart';
+import 'package:leave_tracker/core/utils/i_cal_service.dart';
 import 'package:leave_tracker/l10n/localization.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence.dart';
 import 'package:leave_tracker/widgets/raw_button.dart';
@@ -37,7 +38,9 @@ class AbsenceCardView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MemberInfoView(image: data.member?.image ?? '', name: data.member?.name ?? '', key: Key(data.member?.userId?.toString() ?? ''),),
-                    AbsencePeriodView(start: data.startDate, end: data.endDate,),
+                    AbsencePeriodView(start: data.startDate, end: data.endDate, onTap: (){
+                      createAndSaveSingleDateAbsence(data);
+                    },),
                   ],
                 ),
               ),

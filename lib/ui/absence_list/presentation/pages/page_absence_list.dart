@@ -61,12 +61,6 @@ class _PageAbsenceListState extends State<PageAbsenceList> with AutomaticKeepAli
                     ],
                   ),
               ),
-              RawButton(
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.only(right: 12),
-                  onTap: (){},
-                  child: Image.asset(Assets.imagesFile, height: 24, color: Theme.of(context).iconTheme.color,),
-              ),
             ],
           ),
           body: Column(
