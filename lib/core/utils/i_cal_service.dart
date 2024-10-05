@@ -3,8 +3,6 @@ import 'package:leave_tracker/core/constants/enums.dart';
 import 'package:leave_tracker/core/utils/extensions.dart';
 import 'package:leave_tracker/core/utils/utils.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence.dart';
-import 'package:open_file/open_file.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 
@@ -18,30 +16,33 @@ Future<bool> requestStoragePermission() async {
 Future<void> saveICalFile(final String iCalContent, final String name) async {
   printDebug(iCalContent);
   // Request permission
-  if (await requestStoragePermission()) {
-    // Get the downloads directory
-    Directory? downloadsDirectory;
-    downloadsDirectory = await getApplicationDocumentsDirectory();
+  if ( await requestStoragePermission()) {
+    // // Get the downloads directory
+    // Directory? downloadsDirectory;
+    // downloadsDirectory = await getTemporaryDirectory();
+    final Directory? downloadsDirectory = Directory('/storage/emulated/0/Download');
 
     // Create the iCal file
     final String fileName = '$name.ics';
-    final File file = File('${downloadsDirectory.path}/$fileName');
+    final File file = File('${downloadsDirectory?.path}/$fileName');
+
+    print(fileName);
+    print('${downloadsDirectory?.path}/$fileName');
 
     // Write content to the file
     await file.writeAsString(iCalContent);
 
-    OpenFile.open('${downloadsDirectory.path}/$fileName');
-
-    //printDebug('iCal file saved to: ${file.path}');
-    //showOkToast('iCal file saved to: ${file.path}', type: ToastType.success);
+    printDebug('iCal file saved to: ${file.path}');
+    showOkToast('iCal file saved to: ${file.path}', type: ToastType.success);
   } else {
+    print('Storage permission denied.');
     printDebug('Storage permission denied.');
     showOkToast('Storage permission denied.', type: ToastType.error);
   }
 }
 
 /// Function to generate iCal format for a single event
-Future<String> generateICal(final Absence absence) async {
+String generateICal(final Absence absence)  {
   // iCal format string
   final icalContent = '''
 BEGIN:VCALENDAR
@@ -64,6 +65,6 @@ END:VCALENDAR
 
 ///Create and save iCal file
 Future<void> createAndSaveSingleDateAbsence(final Absence absence) async {
-  final String iCalContent = await generateICal(absence);
+  final String iCalContent = generateICal(absence);
   saveICalFile(iCalContent, 'absence-${absence.type.value}-${absence.member?.name ?? ''}');
 }
