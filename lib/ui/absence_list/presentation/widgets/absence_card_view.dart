@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:leave_tracker/core/utils/extensions.dart';
 import 'package:leave_tracker/core/utils/i_cal_service.dart';
 import 'package:leave_tracker/l10n/localization.dart';
+import 'package:leave_tracker/ui/absence_details/presentation/screens/screen_absence_details.dart';
 import 'package:leave_tracker/ui/absence_list/domain/entities/absence.dart';
 import 'package:leave_tracker/widgets/raw_button.dart';
 import 'package:leave_tracker/widgets/tag_view.dart';
@@ -26,7 +28,7 @@ class AbsenceCardView extends StatelessWidget {
     return RawButton(
       padding: const EdgeInsets.all(12),
       onTap: (){
-
+        context.go(ScreenAbsenceDetails.routeName, extra: data);
       },
       child: Column(
         children: [

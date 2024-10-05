@@ -34,5 +34,12 @@
     "language": "Language",
     "theme": "Theme",
     "dark": "Dark",
-    "light": "Light"
+    "light": "Light",
+
+    "absence_details": "Absence Details",
+    "user": "User",
+    "absence": "Absence",
+    "created_at": "Created At",
+    "confirmed_at": "Confirmed At",
+    "rejected_at": "Rejected At"
 }
