@@ -65,6 +65,13 @@ Here are some screenshots of the App in action:
    <img src="https://drive.google.com/uc?export=view&id=1-uegM1U9WybjtB6GTqlZHXUMnt3obWMC" alt="Home Screen" width="300"/>
 </div>
 
+### Details
+
+<div style="display: flex; gap: 10px;">
+   <img src="https://drive.google.com/uc?export=view&id=16NJVEOM5DDoXVmfT4_ve4GWg3CFthUWo" alt="Home Screen" width="300"/>
+   <img src="https://drive.google.com/uc?export=view&id=1wnO5M_p9LyOt-t3NQH0jDOO4zoC3rWz_" alt="Home Screen" width="300"/>
+</div>
+
 ## Video Preview
 
 Here’s a video preview of the App in action: [Video](https://drive.google.com/file/d/1gB7wrSJVx7tCAaCIS8y3vxyZDYiav3Dd/view)
