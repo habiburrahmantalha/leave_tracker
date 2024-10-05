@@ -38,9 +38,6 @@ class AbsenceCardView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MemberInfoView(image: data.member?.image ?? '', name: data.member?.name ?? '', key: Key(data.member?.userId?.toString() ?? ''),),
-                    AbsencePeriodView(start: data.startDate, end: data.endDate, onTap: (){
-                      createAndSaveSingleDateAbsence(data);
-                    },),
                   ],
                 ),
               ),
@@ -54,6 +51,9 @@ class AbsenceCardView extends StatelessWidget {
               ),
             ],
           ),
+          AbsencePeriodView(start: data.startDate, end: data.endDate, onTap: (){
+            createAndSaveSingleDateAbsence(data);
+          },),
           AbsenceNoteView(label: '${context.local.member_note} : ', note: data.memberNote ?? ''),
           AbsenceNoteView(label: '${context.local.admitter_note} : ', note: data.admitterNote ?? ''),
         ],

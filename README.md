@@ -47,6 +47,29 @@ A Flutter based absence management app for team member.
 - [x] Basic widget testing has been implemented for a few widgets. Further testing may be added in future updates.
 - [x] .env file to securely store and manage sensitive keys, such as API keys
 
+## Screenshots
+
+Here are some screenshots of the App in action:
+
+### Home Screen
+<div style="display: flex; gap: 10px;">
+    <img src="https://drive.google.com/uc?export=view&id=13XteW6bz2TqtBp6G7dfuoohtxvdQoNDZ" alt="Home Screen" width="300"/>
+    <img src="https://drive.google.com/uc?export=view&id=12lINTU3woEoTuuW_Bm25zayRe8CdB0Kc" alt="Home Screen" width="300"/>
+    <img src="https://drive.google.com/uc?export=view&id=1_X_n7KaC1aPVMYoXQiZ4JhvJjWd0sBjo" alt="Home Screen" width="300"/>
+    <img src="https://drive.google.com/uc?export=view&id=1QsKgPMxMJ86DELtNkYfYCKgoBFy2k6F5" alt="Home Screen" width="300"/>
+</div>
+
+### Settings
+
+<div style="display: flex; gap: 10px;">
+   <img src="https://drive.google.com/uc?export=view&id=1-uegM1U9WybjtB6GTqlZHXUMnt3obWMC" alt="Home Screen" width="300"/>
+</div>
+
+## Video Preview
+
+Here’s a video preview of the App in action: [Video](https://drive.google.com/file/d/11k8RnxSukY2uweHDlpMR5yhN79JD1qWn/view)
+
+
 ## Getting Started
 
 Follow these instructions to set up the project and run it locally.
@@ -77,3 +100,8 @@ Follow these instructions to set up the project and run it locally.
      assets:
       - .env #uncomment this line before trying debug build
 
+https://drive.google.com/file/d/1QsKgPMxMJ86DELtNkYfYCKgoBFy2k6F5/view?usp=sharing
+https://drive.google.com/file/d/1_X_n7KaC1aPVMYoXQiZ4JhvJjWd0sBjo/view?usp=sharing
+https://drive.google.com/file/d/12lINTU3woEoTuuW_Bm25zayRe8CdB0Kc/view?usp=sharing
+https://drive.google.com/file/d/13XteW6bz2TqtBp6G7dfuoohtxvdQoNDZ/view?usp=sharing
+https://drive.google.com/file/d/1-uegM1U9WybjtB6GTqlZHXUMnt3obWMC/view?usp=sharing

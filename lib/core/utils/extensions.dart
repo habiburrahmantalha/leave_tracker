@@ -33,6 +33,16 @@ extension DateTimeExtension on DateTime?{
       return '';
     }
   }
+
+  /// convert date time to dd MMM, yyyy format
+  String toYYMMdd(){
+    if(this != null){
+      final DateFormat dateFormat = DateFormat('yyyyMMdd');
+      return dateFormat.format(this!) ;
+    }else{
+      return '';
+    }
+  }
 }
 
 ///[AbsenceType] extension to get theme based color
