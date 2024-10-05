@@ -37,7 +37,7 @@ A Flutter based absence management app for team member.
 
 ## Additional Features
 
-- [x] API implemented using laravel
+- [x] API implemented using laravel [repository](https://github.com/habiburrahmantalha/absence-api)
 - [x] Theme - Dark and Light Mode support
 - [x] Localization support (English and German)
 - [x] Firebase analytics and crashlytics integrated

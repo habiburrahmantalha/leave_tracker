@@ -7,35 +7,31 @@ import 'package:permission_handler/permission_handler.dart';
 
 
 /// Request storage permission
-Future<bool> requestStoragePermission() async {
-  final status = await Permission.storage.request();
+Future<bool> requestManagePermission() async {
+  final PermissionStatus status = await Permission.manageExternalStorage.request();
   return status.isGranted;
 }
+
 
 /// Save file
 Future<void> saveICalFile(final String iCalContent, final String name) async {
   printDebug(iCalContent);
   // Request permission
-  if ( await requestStoragePermission()) {
-    // // Get the downloads directory
-    // Directory? downloadsDirectory;
-    // downloadsDirectory = await getTemporaryDirectory();
-    final Directory? downloadsDirectory = Directory('/storage/emulated/0/Download');
+  if ( await requestManagePermission()) {
+    /// Get the downloads directory
+    final Directory downloadsDirectory = Directory('/storage/emulated/0/Download');
 
     // Create the iCal file
     final String fileName = '$name.ics';
-    final File file = File('${downloadsDirectory?.path}/$fileName');
-
-    print(fileName);
-    print('${downloadsDirectory?.path}/$fileName');
+    final File file = File('${downloadsDirectory.path}/$fileName');
 
     // Write content to the file
     await file.writeAsString(iCalContent);
 
     printDebug('iCal file saved to: ${file.path}');
     showOkToast('iCal file saved to: ${file.path}', type: ToastType.success);
+
   } else {
-    print('Storage permission denied.');
     printDebug('Storage permission denied.');
     showOkToast('Storage permission denied.', type: ToastType.error);
   }
